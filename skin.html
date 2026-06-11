@@ -1,0 +1,1845 @@
+<!doctype html>
+<!--
+  ColdBrewony Terminal Theme
+  https://github.com/ColdBrewony
+-->
+<html lang="ko" class="
+  jb-theme-terminal
+  [##_var_jb-header-type_##]
+  [##_var_jb-navigation-type_##]
+  [##_var_jb-sidebar-right-type_##]
+  [##_var_jb-sidebar-bottom-type_##]
+  <s_if_var_jb-sidebar-bottom-full-width>jb-sidebar-bottom-full-width</s_if_var_jb-sidebar-bottom-full-width>
+  <s_if_var_jb-sidebar-bottom-dark>jb-sidebar-bottom-dark</s_if_var_jb-sidebar-bottom-dark>
+  <s_not_var_jb-sidebar-right-show>jb-remove-right-sidebar</s_not_var_jb-sidebar-right-show>
+  <s_if_var_jb-recent-posts-thumbnail-show>jb-recent-posts-thumbnail-show</s_if_var_jb-recent-posts-thumbnail-show>
+  [##_var_jb-font-body-type_##]
+  [##_var_jb-font-heading-type_##]
+  [##_var_jb-cover-title-type_##]
+  [##_var_jb-index-notice-type_##]
+  [##_var_jb-index-related-type_##]
+  [##_var_jb-another-category-type_##]
+  [##_var_jb-comment-type_##]
+  [##_var_jb-typography-heading-type_##]
+  [##_var_jb-typography-blockquote-1-type_##]
+  [##_var_jb-typography-blockquote-2-type_##]
+  [##_var_jb-typography-ce-heading-type_##]
+  [##_var_jb-typography-ce-blockquote-type_##]
+">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>[##_page_title_##]</title>
+    <link rel="alternate" type="application/rss+xml" title="[##_title_##]" href="[##_rss_url_##]">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding-full.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap">
+    <link rel="stylesheet" href="./images/jquery.nivo.slider.css">
+    <link rel="stylesheet" href="./images/jquery.nivo.slider.default.css">
+    <link rel="stylesheet" href="./images/custom.css">
+    <script src="./images/jquery-3.5.1.min.js"></script>
+    <script src="./images/jquery.nivo.slider.min.js"></script>
+    <script src="./images/jquery.toc.js"></script>
+    <script src="./images/jquery.smooth-scroll.js"></script>
+    <link rel="stylesheet" href="./style.css">
+    <script>
+      // Variables
+        var jbCurrentUrl = window.location.pathname;
+        var jbThumbnailSize = '150x150';
+        var jbThumbnailSizeRelated = '150x150';
+        var jbThumbnailSizeNotice = '300x300';
+        var jbAdSenseInfeedCount = 0;
+      // Layout
+        var jbWidthContent = [##_var_jb-layout-width-content_##] + 30;
+        var jbWidthSidebar = [##_var_jb-layout-width-sidebar_##] + 30;
+        var jbWidthContainer = jbWidthContent + jbWidthSidebar + 30;
+        var jbWidthContainerNoSidebar = jbWidthContent + 30;
+        <s_if_var_jb-sidebar-right-show>
+          document.write( '<style> @media ( min-width: 1025px ) { .jb-container { width: ' + jbWidthContainer + 'px; } .jb-column-content { width: ' + jbWidthContent + 'px; } .jb-column-sidebar { width: ' + jbWidthSidebar + 'px; } } </style>' );
+        </s_if_var_jb-sidebar-right-show>
+        <s_not_var_jb-sidebar-right-show>
+          document.write( '<style> .jb-column-content { float: none; width: 100%; } @media ( min-width: 1025px ) { .jb-container { width: ' + jbWidthContainerNoSidebar + 'px; } } </style>' );
+        </s_not_var_jb-sidebar-right-show>
+      // Responsive
+        var jbResponsiveYouTube = '[##_var_jb-responsive-youtube_##]'; // yes or no
+        var jbResponsiveTable = '[##_var_jb-responsive-table_##]'; // yes or no
+      // AdSense
+        var jbAdSenseClientId = '[##_var_jb-adsense-client-id_##]'; // data-ad-client
+        var jbAdSenseMainTopSlot = '[##_var_jb-adsense-main-top-slot_##]'; // data-ad-slot
+        var jbAdSenseMainBottomSlot = '[##_var_jb-adsense-main-bottom-slot_##]'; // data-ad-slot
+        var jbAdSenseContentTopSlot = '[##_var_jb-adsense-content-top-slot_##]'; // data-ad-slot
+        var jbAdSenseContentTopLeftSlot = '[##_var_jb-adsense-content-top-left-slot_##]'; // data-ad-slot
+        var jbAdSenseContentTopRightSlot = '[##_var_jb-adsense-content-top-right-slot_##]'; // data-ad-slot
+        var jbAdSenseContentMiddleSlot = '[##_var_jb-adsense-content-middle-slot_##]'; // data-ad-slot
+        var jbAdSenseContentBottomSlot = '[##_var_jb-adsense-content-bottom-slot_##]'; // data-ad-slot
+        var jbAdSenseInfeedLayoutKey = '[##_var_jb-adsense-infeed-layout-key_##]';
+        var jbAdSenseInfeedSlot = '[##_var_jb-adsense-infeed-slot_##]';
+        var jbAdSenseInfeedInterval = '[##_var_jb-adsense-infeed-interval_##]';
+        <s_if_var_jb-adsense-data-full-width-responsive>
+          var jbAdSenseDataFullWidthResponsive = 'true';
+        </s_if_var_jb-adsense-data-full-width-responsive>
+        <s_not_var_jb-adsense-data-full-width-responsive>
+          var jbAdSenseDataFullWidthResponsive = 'false';
+        </s_not_var_jb-adsense-data-full-width-responsive>
+        var jbAdSenseContentMiddleShow = '[##_var_jb-adSense-content-middle-show_##]'; // yes or no
+    </script>
+    <style>
+      body { font-size: [##_var_jb-font-size-body_##]px; }
+      .jb-article { font-size: [##_var_jb-font-size-article_##]px; }
+      .jb-header-type-04 .jb-header-table { background-image: url( "[##_var_jb-header-type-04-background_##]" ); }
+      .jb-header-type-11 .jb-background-header { background-image: url( "[##_var_jb-header-type-11-background_##]" ); }
+      <s_if_var_jb-sidebar-right-to-left>
+        @media ( min-width: 768px ) {
+          .jb-column-content { float: right; }
+          .jb-column-sidebar { float: left; }
+        }
+      </s_if_var_jb-sidebar-right-to-left>
+    </style>
+  </head>
+  <body id="[##_body_id_##]"><s_t3>
+
+<script>
+  var jbAdSenseMainTop = '<div class="jb-adsense-main-top"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + jbAdSenseClientId + '" crossorigin="anonymous"><\/script><ins class="adsbygoogle" style="display:block" data-ad-client="' + jbAdSenseClientId + '" data-ad-slot="' + jbAdSenseMainTopSlot + '" data-ad-format="auto" data-full-width-responsive="' + jbAdSenseDataFullWidthResponsive + '"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});<\/script></div>';
+  var jbAdSenseMainBottom = '<div class="jb-adsense-main-bottom"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + jbAdSenseClientId + '" crossorigin="anonymous"><\/script><ins class="adsbygoogle" style="display:block" data-ad-client="' + jbAdSenseClientId + '" data-ad-slot="' + jbAdSenseMainBottomSlot + '" data-ad-format="auto" data-full-width-responsive="' + jbAdSenseDataFullWidthResponsive + '"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});<\/script></div>';
+  var jbAdSenseContentTop = '<div class="jb-adsense-content-top"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + jbAdSenseClientId + '" crossorigin="anonymous"><\/script><ins class="adsbygoogle" style="display:block" data-ad-client="' + jbAdSenseClientId + '" data-ad-slot="' + jbAdSenseContentTopSlot + '" data-ad-format="auto" data-full-width-responsive="' + jbAdSenseDataFullWidthResponsive + '"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});<\/script></div>';
+  var jbAdSenseContentTopLeftRight = '<div class="jb-adsense-table"><div class="jb-adsense-table-row"><div class="jb-adsense-table-cell jb-adsense-table-cell-left"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + jbAdSenseClientId + '" crossorigin="anonymous"><\/script><ins class="adsbygoogle" data-ad-client="' + jbAdSenseClientId + '" data-ad-slot="' + jbAdSenseContentTopLeftSlot + '" data-ad-format="auto" data-full-width-responsive="' + jbAdSenseDataFullWidthResponsive + '"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});<\/script></div><div class="jb-adsense-table-cell jb-adsense-table-cell-right"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + jbAdSenseClientId + '" crossorigin="anonymous"><\/script><ins class="adsbygoogle" data-ad-client="' + jbAdSenseClientId + '" data-ad-slot="' + jbAdSenseContentTopRightSlot + '" data-ad-format="auto" data-full-width-responsive="' + jbAdSenseDataFullWidthResponsive + '"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});<\/script></div></div></div>';
+  var jbAdSenseContentTopRight = '<div class="jb-adsense-content-top-right"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + jbAdSenseClientId + '" crossorigin="anonymous"><\/script><ins class="adsbygoogle" style="display:block" data-ad-client="' + jbAdSenseClientId + '" data-ad-slot="' + jbAdSenseContentTopRightSlot + '" data-ad-format="auto" data-full-width-responsive="' + jbAdSenseDataFullWidthResponsive + '"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});<\/script></div>';
+  var jbAdSenseContentMiddle = '<div class="jb-adsense-content-middle"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + jbAdSenseClientId + '" crossorigin="anonymous"><\/script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="' + jbAdSenseClientId + '" data-ad-slot="' + jbAdSenseContentMiddleSlot + '" data-full-width-responsive="' + jbAdSenseDataFullWidthResponsive + '"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});<\/script></div>';
+  var jbAdSenseContentBottom = '<div class="jb-adsense-content-bottom"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + jbAdSenseClientId + '" crossorigin="anonymous"><\/script><ins class="adsbygoogle" style="display:block" data-ad-client="' + jbAdSenseClientId + '" data-ad-slot="' + jbAdSenseContentBottomSlot + '" data-ad-format="auto" data-full-width-responsive="' + jbAdSenseDataFullWidthResponsive + '"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});<\/script></div>';
+</script>
+
+<div id="jb-page">
+
+<div class="jb-background jb-background-header">
+  <div class="jb-container jb-container-header">
+    <div class="jb-row jb-row-line jb-row-line-header-top">
+      <div class="jb-column jb-column-line jb-column-line-header-top">
+        <div class="jb-line jb-line-header-top"></div>
+      </div>
+    </div>
+    <div class="jb-row jb-row-header">
+      <div class="jb-column jb-column-header">
+        <div class="jb-cell jb-cell-header">
+          <div class="jb-header-table">
+            <div class="jb-header-table-row">
+              <div class="jb-header-table-cell jb-header-table-cell-site-title">
+                <div class="jb-header-mobile-table">
+                  <div class="jb-header-mobile-table-row">
+                    <div class="jb-header-mobile-table-cell jb-header-mobile-table-cell-site-title">
+                      <header>
+                        <s_not_var_jb-title-logo-use>
+                          <div class="jb-site-title"><a href="[##_blog_link_##]"><span class="jb-site-title-text">[##_title_##]</span></a></div>
+                        </s_not_var_jb-title-logo-use>
+                        <s_if_var_jb-title-logo-use>
+                          <div class="jb-site-title"><a href="[##_blog_link_##]"><span class="jb-site-title-image"><img src="[##_var_jb-title-logo_##]" alt=""></span></a></div>
+                        </s_if_var_jb-title-logo-use>
+                      </header>
+                    </div>
+                    <div class="jb-header-mobile-table-cell jb-header-mobile-table-cell-bars">
+                      <div class="jb-bars"><i class="xi-bars"></i></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="jb-header-table-cell jb-header-table-cell-search">
+                <div class="jb-header-blog-menu">
+                  <nav>
+                    <h2 class="jb-section-title jb-section-title-navigation">Header Menu</h2>
+                    [##_blog_menu_##]
+                  </nav>
+                </div>
+                <div class="jb-form-search jb-form-search-header">
+                  <s_search>
+                    <div class="jb-form-search-table">
+                      <div class="jb-form-search-table-row">
+                        <div class="jb-form-search-table-cell jb-form-search-table-cell-input">
+                          <input type="text" name="[##_search_name_##]" value="[##_search_text_##]" onkeypress="if (event.keyCode == 13) { [##_search_onclick_submit_##] }" placeholder="Search..." class="jb-form-input-text">
+                        </div>
+                        <div class="jb-form-search-table-cell jb-form-search-table-cell-button">
+                          <button type="button" onclick="[##_search_onclick_submit_##]" class="jb-form-button"><i class="xi-search"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </s_search>
+                </div>
+                <s_if_var_jb-sns-show>
+                  <div class="jb-sns-wrap">
+                    <s_if_var_jb-sns-facebook-url>
+                      <div class="jb-sns jb-sns-facebook"><a href="[##_var_jb-sns-facebook-url_##]" target="_blank" rel="noopener noreferrer"><i class="xi-facebook"></i></a></div>
+                    </s_if_var_jb-sns-facebook-url>
+                    <s_if_var_jb-sns-instagram-url>
+                      <div class="jb-sns jb-sns-instagram"><a href="[##_var_jb-sns-instagram-url_##]" target="_blank" rel="noopener noreferrer"><i class="xi-instagram"></i></a></div>
+                    </s_if_var_jb-sns-instagram-url>
+                    <s_if_var_jb-sns-twitter-url>
+                      <div class="jb-sns jb-sns-twitter"><a href="[##_var_jb-sns-twitter-url_##]" target="_blank" rel="noopener noreferrer"><i class="xi-twitter"></i></a></div>
+                    </s_if_var_jb-sns-twitter-url>
+                    <s_if_var_jb-sns-kakaostory-url>
+                      <div class="jb-sns jb-sns-kakaostory"><a href="[##_var_jb-sns-kakaostory-url_##]" target="_blank" rel="noopener noreferrer"><i class="xi-kakaostory"></i></a></div>
+                    </s_if_var_jb-sns-kakaostory-url>
+                    <s_if_var_jb-sns-pinterest-url>
+                      <div class="jb-sns jb-sns-pinterest"><a href="[##_var_jb-sns-pinterest-url_##]" target="_blank" rel="noopener noreferrer"><i class="xi-pinterest"></i></a></div>
+                    </s_if_var_jb-sns-pinterest-url>
+                    <s_if_var_jb-sns-linkedin-url>
+                      <div class="jb-sns jb-sns-linkedin"><a href="[##_var_jb-sns-linkedin-url_##]" target="_blank" rel="noopener noreferrer"><i class="xi-linkedin"></i></a></div>
+                    </s_if_var_jb-sns-linkedin-url>
+                    <s_if_var_jb-sns-youtube-url>
+                      <div class="jb-sns jb-sns-youtube"><a href="[##_var_jb-sns-youtube-url_##]" target="_blank" rel="noopener noreferrer"><i class="xi-youtube-play"></i></a></div>
+                    </s_if_var_jb-sns-youtube-url>
+                    <s_if_var_jb-sns-kakaotalk-url>
+                      <div class="jb-sns jb-sns-kakaotalk"><a href="[##_var_jb-sns-kakaotalk-url_##]" target="_blank" rel="noopener noreferrer"><i class="xi-kakaotalk"></i></a></div>
+                    </s_if_var_jb-sns-kakaotalk-url>
+                    <s_if_var_jb-sns-twich-url>
+                      <div class="jb-sns jb-sns-twich"><a href="[##_var_jb-sns-twich-url_##]" target="_blank" rel="noopener noreferrer"><i class="xi-twich"></i></a></div>
+                    </s_if_var_jb-sns-twich-url>
+                  </div>
+                </s_if_var_jb-sns-show>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="jb-row jb-row-line jb-row-line-header-bottom">
+      <div class="jb-column jb-column-line jb-column-line-header-bottom">
+        <div class="jb-line jb-line-header-bottom"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="jb-background jb-background-navigation">
+  <div class="jb-container jb-container-navigation">
+    <div class="jb-row jb-row-line jb-row-line-navigation-top">
+      <div class="jb-column jb-column-line jb-column-line-navigation-top">
+        <div class="jb-line jb-line-navigation-top"></div>
+      </div>
+    </div>
+    <div class="jb-row jb-row-navigation">
+      <div class="jb-column jb-column-navigation">
+        <div class="jb-cell jb-cell-navigation">
+          <nav>
+            <h2 class="jb-section-title jb-section-title-navigation">Main Menu</h2>
+            <div class="jb-navigation jb-navigation-category">
+              [##_category_list_##]
+            </div>
+            <div class="jb-navigation jb-navigation-blog-menu">
+              [##_blog_menu_##]
+            </div>
+            <div class="jb-form-search-navigation-table">
+              <div class="jb-form-search-navigation-table-row">
+                <div class="jb-form-search-navigation-table-cell jb-form-search-navigation-table-cell-input">
+                  <input type="text" name="jb-search-navigation" value="" onkeypress="if (event.keyCode == 13) { try{window.location.href='/search/'+looseURIEncode(document.getElementsByName('jb-search-navigation')[0].value);document.getElementsByName('jb-search-navigation')[0].value='';return false;}catch(e){} }" placeholder="Search..." class="jb-form-input-text">
+                </div>
+                <div class="jb-form-search-navigation-table-cell jb-form-search-navigation-table-cell-button">
+                  <button type="button" onclick="try{window.location.href='/search/'+looseURIEncode(document.getElementsByName('jb-search-navigation')[0].value);document.getElementsByName('jb-search-navigation')[0].value='';return false;}catch(e){}" class="jb-form-button"><i class="xi-search"></i></button>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <div class="jb-row jb-row-line jb-row-line-navigation-bottom">
+      <div class="jb-column jb-column-line jb-column-line-navigation-bottom">
+        <div class="jb-line jb-line-navigation-bottom"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="jb-background jb-background-main-top">
+  <div class="jb-container jb-container-main-top">
+    <div class="jb-row jb-row-main-top">
+      <div class="jb-column jb-column-main-top">
+        <div class="jb-cell jb-cell-main-top">
+          <s_if_var_jb-adsense-main-top-show>
+            <script>
+              document.write( jbAdSenseMainTop );
+            </script>
+          </s_if_var_jb-adsense-main-top-show>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="jb-background jb-background-main">
+  <div class="jb-container jb-container-main">
+    <div class="jb-row jb-row-line jb-row-line-main-top">
+      <div class="jb-column jb-column-line jb-column-line-main-top">
+        <div class="jb-line jb-line-main-top"></div>
+      </div>
+    </div>
+    <div class="jb-row jb-row-main">
+      <div class="jb-column jb-column-content">
+        <s_cover_group><div id="jb-cover-group" class="jb-cover-group">
+          <s_cover_rep>
+            <s_cover name="jb-cover-type-01">
+              <div class="jb-cover jb-cover-type-01">
+                <div class="jb-cover-title-table">
+                  <div class="jb-cover-title-table-row">
+                    <div class="jb-cover-title-table-cell jb-cover-title-table-cell-1">
+                      <h2 class="jb-cover-block-title">[##_cover_title_##]</h2>
+                    </div>
+                    <div class="jb-cover-title-table-cell jb-cover-title-table-cell-2">
+                      <s_cover_url>
+                        <div class="jb-cover-more"><a href="[##_cover_url_##]">더보기</a></div>
+                      </s_cover_url>
+                    </div>
+                  </div>
+                </div>
+                <div class="jb-cell-content-cover">
+                  <div class="jb-row-cover">
+                    <s_cover_item>
+                      <div class="jb-cell jb-cell-cover">
+                        <div class="jb-cover-table">
+                          <div class="jb-cover-table-row">
+                            <div class="jb-cover-table-cell jb-cover-table-cell-thumbnail">
+                              <a href="[##_cover_item_url_##]">
+                                <s_cover_item_thumbnail>
+                                  <div class="jb-cover-thumbnail"></div>
+                                </s_cover_item_thumbnail>
+                              </a>
+                            </div>
+                            <div class="jb-cover-table-cell jb-cover-table-cell-information">
+                              <div class="jb-cover-information-table"><div class="jb-cover-information-table-row"><div class="jb-cover-information-table-cell jb-cover-information-table-cell-1">
+                                <h3 class="jb-cover-title"><a href="[##_cover_item_url_##]">[##_cover_item_title_##]</a></h3>
+                                <s_cover_item_article_info>
+                                  <ul class="jb-cover-information">
+                                    <li class="jb-cover-information-category"><span><a href="[##_cover_item_category_url_##]" class="jb-category-name">[##_cover_item_category_##]</a></span></li>
+                                    <li class="jb-cover-information-date"><span>[##_cover_item_date_##]</span></li>
+                                    <li class="jb-cover-information-comment-count"><span>[##_cover_item_comment_count_##]</span></li>
+                                  </ul>
+                                </s_cover_item_article_info>
+                                <p class="jb-cover-summary"><a href="[##_cover_item_url_##]">[##_cover_item_summary_##]</a></p>
+                                <div class="jb-cover-read-more"><a href="[##_cover_item_url_##]">더 읽기</a></div>
+                              </div></div><div class="jb-cover-information-table-row"><div class="jb-cover-information-table-cell jb-cover-information-table-cell-2"></div></div></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </s_cover_item>
+                  </div>
+                </div>
+              </div>
+            </s_cover>
+            <s_cover name="jb-cover-type-02">
+              <div class="jb-cover jb-cover-type-02">
+                <div class="jb-cover-title-table">
+                  <div class="jb-cover-title-table-row">
+                    <div class="jb-cover-title-table-cell jb-cover-title-table-cell-1">
+                      <h2 class="jb-cover-block-title">[##_cover_title_##]</h2>
+                    </div>
+                    <div class="jb-cover-title-table-cell jb-cover-title-table-cell-2">
+                      <s_cover_url>
+                        <div class="jb-cover-more"><a href="[##_cover_url_##]">더보기</a></div>
+                      </s_cover_url>
+                    </div>
+                  </div>
+                </div>
+                <div class="jb-cell-content-cover">
+                  <div class="jb-row-cover">
+                    <s_cover_item>
+                      <div class="jb-cell jb-cell-cover">
+                        <div class="jb-cover-table">
+                          <div class="jb-cover-table-row">
+                            <div class="jb-cover-table-cell jb-cover-table-cell-thumbnail">
+                              <a href="[##_cover_item_url_##]">
+                                <s_cover_item_thumbnail>
+                                  <div class="jb-cover-thumbnail"><img src="//i1.daumcdn.net/thumb/C300x300/?fname=[##_cover_item_thumbnail_##]" alt="" loading="lazy"></div>
+                                </s_cover_item_thumbnail>
+                              </a>
+                            </div>
+                            <div class="jb-cover-table-cell jb-cover-table-cell-information">
+                              <div class="jb-cover-information-table"><div class="jb-cover-information-table-row"><div class="jb-cover-information-table-cell jb-cover-information-table-cell-1">
+                                <h3 class="jb-cover-title"><a href="[##_cover_item_url_##]">[##_cover_item_title_##]</a></h3>
+                                <s_cover_item_article_info>
+                                  <ul class="jb-cover-information">
+                                    <li class="jb-cover-information-category"><span><a href="[##_cover_item_category_url_##]" class="jb-category-name">[##_cover_item_category_##]</a></span></li>
+                                    <li class="jb-cover-information-date"><span>[##_cover_item_date_##]</span></li>
+                                    <li class="jb-cover-information-comment-count"><span>[##_cover_item_comment_count_##]</span></li>
+                                  </ul>
+                                </s_cover_item_article_info>
+                                <p class="jb-cover-summary"><a href="[##_cover_item_url_##]">[##_cover_item_summary_##]</a></p>
+                                <div class="jb-cover-read-more"><a href="[##_cover_item_url_##]">더 읽기</a></div>
+                              </div></div><div class="jb-cover-information-table-row"><div class="jb-cover-information-table-cell jb-cover-information-table-cell-2"></div></div></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </s_cover_item>
+                  </div>
+                </div>
+              </div>
+            </s_cover>
+            <s_cover name="jb-cover-type-03">
+              <div class="jb-cover jb-cover-type-03">
+                <div class="jb-cover-title-table">
+                  <div class="jb-cover-title-table-row">
+                    <div class="jb-cover-title-table-cell jb-cover-title-table-cell-1">
+                      <h2 class="jb-cover-block-title">[##_cover_title_##]</h2>
+                    </div>
+                    <div class="jb-cover-title-table-cell jb-cover-title-table-cell-2">
+                      <s_cover_url>
+                        <div class="jb-cover-more"><a href="[##_cover_url_##]">더보기</a></div>
+                      </s_cover_url>
+                    </div>
+                  </div>
+                </div>
+                <div class="jb-cell-content-cover">
+                  <div class="jb-row-cover">
+                    <s_cover_item>
+                      <div class="jb-cell jb-cell-cover">
+                        <div class="jb-cover-table">
+                          <div class="jb-cover-table-row">
+                            <div class="jb-cover-table-cell jb-cover-table-cell-thumbnail">
+                              <a href="[##_cover_item_url_##]">
+                                <s_cover_item_thumbnail>
+                                  <div class="jb-cover-thumbnail"><img src="//i1.daumcdn.net/thumb/C300x300/?fname=[##_cover_item_thumbnail_##]" alt="" loading="lazy"></div>
+                                </s_cover_item_thumbnail>
+                              </a>
+                            </div>
+                            <div class="jb-cover-table-cell jb-cover-table-cell-information">
+                              <div class="jb-cover-information-table"><div class="jb-cover-information-table-row"><div class="jb-cover-information-table-cell jb-cover-information-table-cell-1">
+                                <h3 class="jb-cover-title"><a href="[##_cover_item_url_##]">[##_cover_item_title_##]</a></h3>
+                                <s_cover_item_article_info>
+                                  <ul class="jb-cover-information">
+                                    <li class="jb-cover-information-category"><span><a href="[##_cover_item_category_url_##]" class="jb-category-name">[##_cover_item_category_##]</a></span></li>
+                                    <li class="jb-cover-information-date"><span>[##_cover_item_date_##]</span></li>
+                                    <li class="jb-cover-information-comment-count"><span>[##_cover_item_comment_count_##]</span></li>
+                                  </ul>
+                                </s_cover_item_article_info>
+                                <p class="jb-cover-summary"><a href="[##_cover_item_url_##]">[##_cover_item_summary_##]</a></p>
+                                <div class="jb-cover-read-more"><a href="[##_cover_item_url_##]">더 읽기</a></div>
+                              </div></div><div class="jb-cover-information-table-row"><div class="jb-cover-information-table-cell jb-cover-information-table-cell-2"></div></div></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </s_cover_item>
+                  </div>
+                </div>
+              </div>
+            </s_cover>
+            <s_cover name="jb-cover-type-04">
+              <div class="jb-cover jb-cover-type-04">
+                <div class="jb-cover-title-table">
+                  <div class="jb-cover-title-table-row">
+                    <div class="jb-cover-title-table-cell jb-cover-title-table-cell-1">
+                      <h2 class="jb-cover-block-title">[##_cover_title_##]</h2>
+                    </div>
+                    <div class="jb-cover-title-table-cell jb-cover-title-table-cell-2">
+                      <s_cover_url>
+                        <div class="jb-cover-more"><a href="[##_cover_url_##]">더보기</a></div>
+                      </s_cover_url>
+                    </div>
+                  </div>
+                </div>
+                <div class="jb-cell-content-cover">
+                  <div class="jb-row-cover">
+                    <s_cover_item>
+                      <div class="jb-cell jb-cell-cover">
+                        <div class="jb-cover-table">
+                          <div class="jb-cover-table-row">
+                            <div class="jb-cover-table-cell jb-cover-table-cell-thumbnail">
+                              <a href="[##_cover_item_url_##]">
+                                <s_cover_item_thumbnail>
+                                  <div class="jb-cover-thumbnail"><img src="//i1.daumcdn.net/thumb/C400x300/?fname=[##_cover_item_thumbnail_##]" alt="" loading="lazy"></div>
+                                </s_cover_item_thumbnail>
+                              </a>
+                            </div>
+                            <div class="jb-cover-table-cell jb-cover-table-cell-information">
+                              <div class="jb-cover-information-table"><div class="jb-cover-information-table-row"><div class="jb-cover-information-table-cell jb-cover-information-table-cell-1">
+                                <h3 class="jb-cover-title"><a href="[##_cover_item_url_##]">[##_cover_item_title_##]</a></h3>
+                                <s_cover_item_article_info>
+                                  <ul class="jb-cover-information">
+                                    <li class="jb-cover-information-category"><span><a href="[##_cover_item_category_url_##]" class="jb-category-name">[##_cover_item_category_##]</a></span></li>
+                                    <li class="jb-cover-information-date"><span>[##_cover_item_date_##]</span></li>
+                                    <li class="jb-cover-information-comment-count"><span>[##_cover_item_comment_count_##]</span></li>
+                                  </ul>
+                                </s_cover_item_article_info>
+                                <p class="jb-cover-summary"><a href="[##_cover_item_url_##]">[##_cover_item_summary_##]</a></p>
+                                <div class="jb-cover-read-more"><a href="[##_cover_item_url_##]">더 읽기</a></div>
+                              </div></div><div class="jb-cover-information-table-row"><div class="jb-cover-information-table-cell jb-cover-information-table-cell-2"></div></div></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </s_cover_item>
+                  </div>
+                </div>
+              </div>
+            </s_cover>
+            <s_cover name="jb-cover-type-05">
+              <div class="jb-cover jb-cover-type-05">
+                <div class="jb-cover-title-table">
+                  <div class="jb-cover-title-table-row">
+                    <div class="jb-cover-title-table-cell jb-cover-title-table-cell-1">
+                      <h2 class="jb-cover-block-title">[##_cover_title_##]</h2>
+                    </div>
+                    <div class="jb-cover-title-table-cell jb-cover-title-table-cell-2">
+                      <s_cover_url>
+                        <div class="jb-cover-more"><a href="[##_cover_url_##]">더보기</a></div>
+                      </s_cover_url>
+                    </div>
+                  </div>
+                </div>
+                <div class="jb-cell-content-cover">
+                  <div class="jb-row-cover">
+                    <s_cover_item>
+                      <div class="jb-cell jb-cell-cover">
+                        <div class="jb-cover-table">
+                          <div class="jb-cover-table-row">
+                            <div class="jb-cover-table-cell jb-cover-table-cell-thumbnail">
+                              <a href="[##_cover_item_url_##]">
+                                <s_cover_item_thumbnail>
+                                  <div class="jb-cover-thumbnail"><img src="//i1.daumcdn.net/thumb/C480x270/?fname=[##_cover_item_thumbnail_##]" alt="" loading="lazy"></div>
+                                </s_cover_item_thumbnail>
+                              </a>
+                            </div>
+                            <div class="jb-cover-table-cell jb-cover-table-cell-information">
+                              <div class="jb-cover-information-table"><div class="jb-cover-information-table-row"><div class="jb-cover-information-table-cell jb-cover-information-table-cell-1">
+                                <h3 class="jb-cover-title"><a href="[##_cover_item_url_##]">[##_cover_item_title_##]</a></h3>
+                                <s_cover_item_article_info>
+                                  <ul class="jb-cover-information">
+                                    <li class="jb-cover-information-category"><span><a href="[##_cover_item_category_url_##]" class="jb-category-name">[##_cover_item_category_##]</a></span></li>
+                                    <li class="jb-cover-information-date"><span>[##_cover_item_date_##]</span></li>
+                                    <li class="jb-cover-information-comment-count"><span>[##_cover_item_comment_count_##]</span></li>
+                                  </ul>
+                                </s_cover_item_article_info>
+                                <p class="jb-cover-summary"><a href="[##_cover_item_url_##]">[##_cover_item_summary_##]</a></p>
+                                <div class="jb-cover-read-more"><a href="[##_cover_item_url_##]">더 읽기</a></div>
+                              </div></div><div class="jb-cover-information-table-row"><div class="jb-cover-information-table-cell jb-cover-information-table-cell-2"></div></div></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </s_cover_item>
+                  </div>
+                </div>
+              </div>
+            </s_cover>
+            <s_cover name="jb-cover-type-06">
+              <div class="jb-cover jb-cover-type-06">
+                <div class="jb-cover-title-table">
+                  <div class="jb-cover-title-table-row">
+                    <div class="jb-cover-title-table-cell jb-cover-title-table-cell-1">
+                      <h2 class="jb-cover-block-title">[##_cover_title_##]</h2>
+                    </div>
+                    <div class="jb-cover-title-table-cell jb-cover-title-table-cell-2">
+                      <s_cover_url>
+                        <div class="jb-cover-more"><a href="[##_cover_url_##]">더보기</a></div>
+                      </s_cover_url>
+                    </div>
+                  </div>
+                </div>
+                <div class="jb-cell-content-cover">
+                  <div class="jb-row-cover">
+                    <s_cover_item>
+                      <div class="jb-cell jb-cell-cover">
+                        <div class="jb-cover-table">
+                          <div class="jb-cover-table-row">
+                            <div class="jb-cover-table-cell jb-cover-table-cell-thumbnail">
+                              <a href="[##_cover_item_url_##]">
+                                <s_cover_item_thumbnail>
+                                  <div class="jb-cover-thumbnail"><img src="//i1.daumcdn.net/thumb/C480x640/?fname=[##_cover_item_thumbnail_##]" alt="" loading="lazy"></div>
+                                </s_cover_item_thumbnail>
+                              </a>
+                            </div>
+                            <div class="jb-cover-table-cell jb-cover-table-cell-information">
+                              <div class="jb-cover-information-table"><div class="jb-cover-information-table-row"><div class="jb-cover-information-table-cell jb-cover-information-table-cell-1">
+                                <h3 class="jb-cover-title"><a href="[##_cover_item_url_##]">[##_cover_item_title_##]</a></h3>
+                                <s_cover_item_article_info>
+                                  <ul class="jb-cover-information">
+                                    <li class="jb-cover-information-category"><span><a href="[##_cover_item_category_url_##]" class="jb-category-name">[##_cover_item_category_##]</a></span></li>
+                                    <li class="jb-cover-information-date"><span>[##_cover_item_date_##]</span></li>
+                                    <li class="jb-cover-information-comment-count"><span>[##_cover_item_comment_count_##]</span></li>
+                                  </ul>
+                                </s_cover_item_article_info>
+                                <p class="jb-cover-summary"><a href="[##_cover_item_url_##]">[##_cover_item_summary_##]</a></p>
+                                <div class="jb-cover-read-more"><a href="[##_cover_item_url_##]">더 읽기</a></div>
+                              </div></div><div class="jb-cover-information-table-row"><div class="jb-cover-information-table-cell jb-cover-information-table-cell-2"></div></div></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </s_cover_item>
+                  </div>
+                </div>
+              </div>
+            </s_cover>
+            <s_cover name="jb-cover-type-105">
+              <div class="jb-cover jb-cover-type-105">
+                <div class="jb-cover-title-table">
+                  <div class="jb-cover-title-table-row">
+                    <div class="jb-cover-title-table-cell jb-cover-title-table-cell-1">
+                      <h2 class="jb-cover-block-title">[##_cover_title_##]</h2>
+                    </div>
+                    <div class="jb-cover-title-table-cell jb-cover-title-table-cell-2">
+                      <s_cover_url>
+                        <div class="jb-cover-more"><a href="[##_cover_url_##]">더보기</a></div>
+                      </s_cover_url>
+                    </div>
+                  </div>
+                </div>
+                <div class="jb-cell-content-cover">
+                  <div class="jb-row-cover">
+                    <s_cover_item>
+                      <div class="jb-cell jb-cell-cover">
+                        <div class="jb-cover-table">
+                          <div class="jb-cover-table-row">
+                            <div class="jb-cover-table-cell jb-cover-table-cell-thumbnail">
+                              <a href="[##_cover_item_url_##]">
+                                <s_cover_item_thumbnail>
+                                  <div class="jb-cover-thumbnail"><img src="//i1.daumcdn.net/thumb/C480x270/?fname=[##_cover_item_thumbnail_##]" alt="" loading="lazy"></div>
+                                </s_cover_item_thumbnail>
+                              </a>
+                            </div>
+                            <div class="jb-cover-table-cell jb-cover-table-cell-information">
+                              <div class="jb-cover-information-table"><div class="jb-cover-information-table-row"><div class="jb-cover-information-table-cell jb-cover-information-table-cell-1">
+                                <h3 class="jb-cover-title"><a href="[##_cover_item_url_##]">[##_cover_item_title_##]</a></h3>
+                                <s_cover_item_article_info>
+                                  <ul class="jb-cover-information">
+                                    <li class="jb-cover-information-category"><span><a href="[##_cover_item_category_url_##]" class="jb-category-name">[##_cover_item_category_##]</a></span></li>
+                                    <li class="jb-cover-information-date"><span>[##_cover_item_date_##]</span></li>
+                                    <li class="jb-cover-information-comment-count"><span>[##_cover_item_comment_count_##]</span></li>
+                                  </ul>
+                                </s_cover_item_article_info>
+                                <p class="jb-cover-summary"><a href="[##_cover_item_url_##]">[##_cover_item_summary_##]</a></p>
+                                <div class="jb-cover-read-more"><a href="[##_cover_item_url_##]">더 읽기</a></div>
+                              </div></div><div class="jb-cover-information-table-row"><div class="jb-cover-information-table-cell jb-cover-information-table-cell-2"></div></div></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </s_cover_item>
+                  </div>
+                </div>
+              </div>
+            </s_cover>
+            <s_cover name="jb-cover-slider-type-01">
+              <div class="jb-cover-slider jb-cover-slider-type-01">
+                <div class="jb-cover-title-table">
+                  <div class="jb-cover-title-table-row">
+                    <div class="jb-cover-title-table-cell jb-cover-title-table-cell-1">
+                      <h2 class="jb-cover-block-title">[##_cover_title_##]</h2>
+                    </div>
+                    <div class="jb-cover-title-table-cell jb-cover-title-table-cell-2">
+                      <s_cover_url>
+                        <div class="jb-cover-more"><a href="[##_cover_url_##]">더보기</a></div>
+                      </s_cover_url>
+                    </div>
+                  </div>
+                </div>
+                <div class="theme-default">
+                  <div class="ribbon"></div>
+                  <div class="jb-slider nivoSlider">
+                    <s_cover_item>
+                      <a href="[##_cover_item_url_##]">
+                        <s_cover_item_thumbnail>
+                          <img src="//i1.daumcdn.net/thumb/C1280x720/?fname=[##_cover_item_thumbnail_##]" alt="">
+                        </s_cover_item_thumbnail>
+                        <div class="jb-slider-caption">[##_cover_item_title_##]</div>
+                      </a>
+                    </s_cover_item>
+                  </div>
+                </div>
+              </div>
+            </s_cover>
+            <s_cover name="jb-cover-slider-type-02">
+              <div class="jb-cover-slider jb-cover-slider-type-02">
+                <div class="jb-cover-title-table">
+                  <div class="jb-cover-title-table-row">
+                    <div class="jb-cover-title-table-cell jb-cover-title-table-cell-1">
+                      <h2 class="jb-cover-block-title">[##_cover_title_##]</h2>
+                    </div>
+                    <div class="jb-cover-title-table-cell jb-cover-title-table-cell-2">
+                      <s_cover_url>
+                        <div class="jb-cover-more"><a href="[##_cover_url_##]">더보기</a></div>
+                      </s_cover_url>
+                    </div>
+                  </div>
+                </div>
+                <div class="theme-default">
+                  <div class="ribbon"></div>
+                  <div class="jb-slider nivoSlider">
+                    <s_cover_item>
+                      <a href="[##_cover_item_url_##]">
+                        <s_cover_item_thumbnail>
+                          <img src="//i1.daumcdn.net/thumb/C1280x720/?fname=[##_cover_item_thumbnail_##]" alt="">
+                        </s_cover_item_thumbnail>
+                        <!--<div class="jb-slider-caption">[##_cover_item_title_##]</div>-->
+                      </a>
+                    </s_cover_item>
+                  </div>
+                </div>
+              </div>
+            </s_cover>
+          </s_cover_rep>
+        </div></s_cover_group>
+        <s_list>
+          <div class="jb-cell jb-cell-content jb-cell-content-search-list [##_list_style_##]">
+            <script>
+              if ( $( '.jb-cell-content-search-list' ).hasClass( 'jb-index-type-01' ) ) { jbThumbnailSize = '150x150'; }
+              if ( $( '.jb-cell-content-search-list' ).hasClass( 'jb-index-type-02' ) ) { jbThumbnailSize = '500x500'; }
+              if ( $( '.jb-cell-content-search-list' ).hasClass( 'jb-index-type-03' ) ) { jbThumbnailSize = '480x270'; }
+              if ( $( '.jb-cell-content-search-list' ).hasClass( 'jb-index-type-04' ) ) { jbThumbnailSize = '600x400'; }
+              if ( $( '.jb-cell-content-search-list' ).hasClass( 'jb-index-type-05' ) ) { jbThumbnailSize = '500x500'; }
+              if ( $( '.jb-cell-content-search-list' ).hasClass( 'jb-index-type-06' ) ) { jbThumbnailSize = '500x500'; }
+              if ( $( '.jb-cell-content-search-list' ).hasClass( 'jb-index-type-07' ) ) { jbThumbnailSize = '500x500'; }
+              if ( $( '.jb-cell-content-search-list' ).hasClass( 'jb-index-type-08' ) ) { jbThumbnailSize = '400x300'; }
+              if ( $( '.jb-cell-content-search-list' ).hasClass( 'jb-index-type-09' ) ) { jbThumbnailSize = '500x500'; }
+              if ( $( '.jb-cell-content-search-list' ).hasClass( 'jb-index-type-10' ) ) { jbThumbnailSize = '500x500'; }
+            </script>
+            <header>
+              <div class="jb-content-title jb-content-title-search-list">
+                <h1>[##_list_conform_##] ([##_list_count_##])</h1>
+              </div>
+            </header>
+            [##_revenue_list_upper_##]
+            <s_list_rep>
+              <div class="jb-cell jb-cell-index jb-cell-index-front">
+                <div class="jb-index-table jb-index-table-front">
+                  <div class="jb-index-table-row jb-index-table-row-front">
+                    <div class="jb-index-table-cell jb-index-table-cell-thumbnail jb-index-table-cell-front jb-index-table-cell-thumbnail-front">
+                      <a href="[##_list_rep_link_##]">
+                        <s_list_rep_thumbnail>
+                          <div class="jb-index-thumbnail jb-index-thumbnail-front">
+                            <script>
+                              document.write( '<img src="//i1.daumcdn.net/thumb/C' + jbThumbnailSize + '/?fname=[##_list_rep_thumbnail_##]" alt="" loading="lazy">' );
+                            </script>
+                          </div>
+                        </s_list_rep_thumbnail>
+                      </a>
+                    </div>
+                    <div class="jb-index-table-cell jb-index-table-cell-information jb-index-table-cell-front jb-index-table-cell-information-front">
+                      <div class="jb-index-information-table"><div class="jb-index-information-table-row"><div class="jb-index-information-table-cell jb-index-information-table-cell-1">
+                        <h3 class="jb-index-title jb-index-title-front"><a href="[##_list_rep_link_##]">[##_list_rep_title_##]</a></h3>
+                        <ul class="jb-index-information jb-index-information-front">
+                          <s_if_var_jb-index-show-author>
+                            <li class="jb-index-information-author jb-index-information-author-front"><span>[##_list_rep_author_##]</span></li>
+                          </s_if_var_jb-index-show-author>
+                          <li class="jb-index-information-category jb-index-information-category-front"><span><a href="[##_list_rep_category_link_##]" class="jb-category-name">[##_list_rep_category_##]</a></span></li>
+                          <li class="jb-index-information-date jb-index-information-date-front"><span>[##_list_rep_regdate_##]</span></li>
+                        </ul>
+                        <p class="jb-index-summary jb-index-summary-front"><a href="[##_list_rep_link_##]">[##_list_rep_summary_##]</a></p>
+                        <div class="jb-index-read-more"><a href="[##_list_rep_link_##]">더 읽기</a></div>
+                      </div></div><div class="jb-index-information-table-row"><div class="jb-index-information-table-cell jb-index-information-table-cell-2"></div></div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <s_if_var_jb-adsense-infeed-show>
+                <script>
+                  jbAdSenseInfeedCount ++;
+                  if ( jbAdSenseInfeedCount % jbAdSenseInfeedInterval == 0 ) {
+                    document.write( '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + jbAdSenseClientId + '" crossorigin="anonymous"><\/script>' );
+                    document.write( '<div class="jb-cell-index"><ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="' + jbAdSenseInfeedLayoutKey + '" data-ad-client="' + jbAdSenseClientId + '" data-ad-slot="' + jbAdSenseInfeedSlot + '"><\/ins><\/div>' );
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                  }
+                </script>
+              </s_if_var_jb-adsense-infeed-show>
+            </s_list_rep>
+            [##_revenue_list_lower_##]
+          </div>
+        </s_list>
+        <s_tag>
+          <div class="jb-cell jb-cell-content jb-cell-content-tag">
+            <header>
+              <div class="jb-content-title jb-content-title-tag">
+                <h1>태그</h1>
+              </div>
+            </header>
+            <div class="jb-content jb-content-tag">
+              <ul>
+                <s_tag_rep>
+                  <li><a href="[##_tag_link_##]" class="[##_tag_class_##]">[##_tag_name_##]</a></li>
+                </s_tag_rep>
+              </ul>
+            </div>
+          </div>
+        </s_tag>
+        <s_guest>
+          <div class="jb-cell jb-cell-content jb-cell-content-guestbook">
+            <s_if_var_jb-new-guestbook>
+              [##_guestbook_group_##]
+            </s_if_var_jb-new-guestbook>
+            <s_not_var_jb-new-guestbook>
+              <header>
+                <div class="jb-content-title jb-content-title-guestbook">
+                  <h1>방명록</h1>
+                </div>
+              </header>
+              <div class="jb-content jb-content-guestbook">
+                <s_guest_input_form>
+                  <div class="jb-wrap-form-discuss jb-wrap-form-discuss-guestbook">
+                    <s_guest_member>
+                      <s_guest_form>
+                        <div class="jb-form-discuss jb-form-discuss-name jb-form-discuss-table">
+                          <div class="jb-form-discuss-table-row">
+                            <div class="jb-form-discuss-table-cell jb-form-discuss-table-cell-icon">
+                              <div class="jb-form-discuss-icon jb-form-discuss-icon-name">
+                                <i class="xi-user"></i>
+                              </div>
+                            </div>
+                            <div class="jb-form-discuss-table-cell jb-form-discuss-table-cell-input">
+                              <input type="text" id="[##_guest_input_name_##]" name="[##_guest_input_name_##]" value="[##_guest_name_##]" placeholder="Name" class="jb-form-input-text">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="jb-form-discuss jb-form-discuss-homepage jb-form-discuss-table">
+                          <div class="jb-form-discuss-table-row">
+                            <div class="jb-form-discuss-table-cell jb-form-discuss-table-cell-icon">
+                              <div class="jb-form-discuss-icon jb-form-discuss-icon-homepage">
+                                <i class="xi-home"></i>
+                              </div>
+                            </div>
+                            <div class="jb-form-discuss-table-cell jb-form-discuss-table-cell-input">
+                              <input type="text" id="[##_guest_input_homepage_##]" name="[##_guest_input_homepage_##]" value="[##_guest_homepage_##]" class="jb-form-input-text">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="jb-form-discuss jb-form-discuss-password jb-form-discuss-table">
+                          <div class="jb-form-discuss-table-row">
+                            <div class="jb-form-discuss-table-cell jb-form-discuss-table-cell-icon">
+                              <div class="jb-form-discuss-icon jb-form-discuss-icon-password">
+                                <i class="xi-key"></i>
+                              </div>
+                            </div>
+                            <div class="jb-form-discuss-table-cell jb-form-discuss-table-cell-input">
+                              <input type="password" id="[##_guest_input_password_##]" name="[##_guest_input_password_##]" value="[##_guest_password_##]" placeholder="Password" class="jb-form-input-text">
+                            </div>
+                          </div>
+                        </div>
+                      </s_guest_form>
+                      <div class="jb-form-discuss jb-form-discuss-secret jb-form-discuss-table">
+                        <div class="jb-form-discuss-table-row">
+                          <div class="jb-form-discuss-table-cell jb-form-discuss-table-cell-checkbox">
+                            <input type="checkbox" id="[##_guest_input_is_secret_##]" name="[##_guest_input_is_secret_##]" value="1" class="jb-form-input-checkbox">
+                            <label for="[##_guest_input_is_secret_##]" class="jb-form-label jb-form-label-secret jb-form-label-secret-icon"></label>
+                          </div>
+                          <div class="jb-form-discuss-table-cell jb-form-discuss-table-cell-label">
+                            <label for="[##_guest_input_is_secret_##]" class="jb-form-label jb-form-label-secret jb-form-label-secret-text">비밀 글</label>
+                          </div>
+                        </div>
+                      </div>
+                    </s_guest_member>
+                    <div class="jb-form-discuss jb-form-discuss-content">
+                      <textarea name="[##_guest_textarea_body_##]" class="jb-form-textarea"></textarea>
+                    </div>
+                    <div class="jb-form-discuss jb-form-discuss-submit">
+                      <button onclick="[##_guest_onclick_submit_##]" class="jb-form-button"><span>등록</span></button>
+                    </div>
+                  </div>
+                </s_guest_input_form>
+                <s_guest_container>
+                  <div class="jb-wrap-discuss-list jb-wrap-discuss-list-guestbook">
+                    <ul class="jb-discuss-list-level-1">
+                      <s_guest_rep>
+                        <li id="[##_guest_rep_id_##]" class="[##_guest_rep_class_##]">
+                          <table class="jb-discuss-table jb-discuss-table-guestbook">
+                            <tr class="jb-discuss-table-row jb-discuss-table-row-guestbook">
+                              <td class="jb-discuss-table-cell jb-discuss-table-cell-logo jb-discuss-table-cell-guestbook jb-discuss-table-cell-logo-guestbook">
+                                <div class="jb-discuss-information-logo"><img src="[##_guest_rep_logo_##]" alt=""></div>
+                              </td>
+                              <td class="jb-discuss-table-cell jb-discuss-table-cell-name jb-discuss-table-cell-guestbook jb-discuss-table-cell-name-guestbook">
+                                <div class="jb-discuss-information-name">[##_guest_rep_name_##]</div>
+                                <div class="jb-discuss-information-date">[##_guest_rep_date_##]</div>
+                              </td>
+                            </tr>
+                            <tr class="jb-discuss-table-row jb-discuss-table-row-guestbook">
+                              <td colspan="2" class="jb-discuss-table-cell jb-discuss-table-cell-desc jb-discuss-table-cell-guestbook jb-discuss-table-cell-desc-guestbook">
+                                <p class="jb-discuss-content">[##_guest_rep_desc_##]</p>
+                              </td>
+                            </tr>
+                            <tr class="jb-discuss-table-row jb-discuss-table-row-guestbook">
+                              <td colspan="2" class="jb-discuss-table-cell jb-discuss-table-cell-reaction jb-discuss-table-cell-guestbook jb-discuss-table-cell-reaction-guestbook">
+                                <div class="jb-discuss-reaction">
+                                  <a href="#" onclick="[##_guest_rep_onclick_reply_##]" class="jb-discuss-reaction-reply">답글</a>
+                                  <a href="#" onclick="[##_guest_rep_onclick_delete_##]" class="jb-discuss-reaction-edit">수정</a>
+                                </div>
+                              </td>
+                            </tr>
+                          </table>
+                          <s_guest_reply_container>
+                            <ul class="jb-discuss-list-level-2">
+                              <s_guest_reply_rep>
+                                <li id="[##_guest_rep_id_##]" class="[##_guest_rep_class_##]">
+                                  <table class="jb-discuss-table jb-discuss-table-guestbook">
+                                    <tr class="jb-discuss-table-row jb-discuss-table-row-guestbook">
+                                      <td class="jb-discuss-table-cell jb-discuss-table-cell-logo jb-discuss-table-cell-guestbook jb-discuss-table-cell-logo-guestbook">
+                                        <div class="jb-discuss-information-logo"></div>
+                                      </td>
+                                      <td class="jb-discuss-table-cell jb-discuss-table-cell-name jb-discuss-table-cell-guestbook jb-discuss-table-cell-name-guestbook">
+                                        <div class="jb-discuss-information-name">[##_guest_rep_name_##]</div>
+                                        <div class="jb-discuss-information-date">[##_guest_rep_date_##]</div>
+                                      </td>
+                                    </tr>
+                                    <tr class="jb-discuss-table-row jb-discuss-table-row-guestbook">
+                                      <td colspan="2" class="jb-discuss-table-cell jb-discuss-table-cell-desc jb-discuss-table-cell-guestbook jb-discuss-table-cell-desc-guestbook">
+                                        <p class="jb-discuss-content">[##_guest_rep_desc_##]</p>
+                                      </td>
+                                    </tr>
+                                    <tr class="jb-discuss-table-row jb-discuss-table-row-guestbook">
+                                      <td colspan="2" class="jb-discuss-table-cell jb-discuss-table-cell-reaction jb-discuss-table-cell-guestbook jb-discuss-table-cell-reaction-guestbook">
+                                        <div class="jb-discuss-reaction">
+                                          <a href="#" onclick="[##_guest_rep_onclick_delete_##]" class="jb-discuss-reaction-edit">수정</a>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </li>
+                              </s_guest_reply_rep>
+                            </ul>
+                          </s_guest_reply_container>
+                        </li>
+                      </s_guest_rep>
+                    </ul>
+                  </div>
+                </s_guest_container>
+              </div>
+            </s_not_var_jb-new-guestbook>
+          </div>
+        </s_guest>
+        <s_page_rep>
+          <s_permalink_article_rep>
+            <div class="jb-cell jb-cell-content jb-cell-content-article jb-cell-content-page">
+              <article>
+                <header>
+                  <div class="jb-content-title jb-content-title-article jb-content-title-article-page">
+                    <h1><a href="[##_article_rep_link_##]">[##_article_rep_title_##]</a></h1>
+                    <div class="jb-article-information jb-article-information-page">
+                      <ul>
+                        <s_if_var_jb-post-show-author>
+                          <li class="jb-article-information-author jb-article-information-author-page"><span>[##_article_rep_author_##]</span></li>
+                        </s_if_var_jb-post-show-author>
+                        <li class="jb-article-information-date jb-article-information-date-page"><span>
+                          <s_not_var_jb-post-show-simple-date>[##_article_rep_date_##]</s_not_var_jb-post-show-simple-date>
+                          <s_if_var_jb-post-show-simple-date>[##_article_rep_simple_date_##]</s_if_var_jb-post-show-simple-date>
+                        </span></li>
+                      </ul>
+                    </div>
+                  </div>
+                </header>
+                <section>
+                  <div class="jb-content jb-content-article jb-content-article-page">
+                    <div class="jb-article jb-article-page">[##_article_rep_desc_##]</div>
+                  </div>
+                </section>
+              </article>
+            </div>
+          </s_permalink_article_rep>
+        </s_page_rep>
+        <s_notice_rep>
+          <s_index_article_rep>
+            <div class="jb-cell jb-cell-index jb-cell-index-notice">
+              <div class="jb-index-table jb-index-table-notice">
+                <div class="jb-index-table-row jb-index-table-row-notice">
+                  <div class="jb-index-table-cell jb-index-table-cell-thumbnail jb-index-table-cell-notice jb-index-table-cell-thumbnail-notice">
+                    <a href="[##_notice_rep_link_##]">
+                      <div class="jb-index-thumbnail jb-index-thumbnail-no-image jb-index-thumbnail-notice jb-index-thumbnail-no-image-notice">
+                        <script>
+                          document.write( '<img src="./images/jb-notice-' + jbThumbnailSizeNotice + '.png" alt="">' );
+                        </script>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="jb-index-table-cell jb-index-table-cell-information jb-index-table-cell-notice jb-index-table-cell-information-notice">
+                    <div class="jb-index-information-table"><div class="jb-index-information-table-row"><div class="jb-index-information-table-cell jb-index-information-table-cell-1">
+                      <h3 class="jb-index-title jb-index-title-notice"><a href="[##_notice_rep_link_##]">[##_notice_rep_title_##]</a></h3>
+                      <ul class="jb-index-information jb-index-information-notice">
+                        <li class="jb-index-information-category jb-index-information-category-notice"><span><a href="/notice">공지사항</a></span></li>
+                        <li class="jb-index-information-date jb-index-information-date-notice"><span>
+                          <s_not_var_jb-post-show-simple-date>[##_notice_rep_date_##]</s_not_var_jb-post-show-simple-date>
+                          <s_if_var_jb-post-show-simple-date>[##_notice_rep_simple_date_##]</s_if_var_jb-post-show-simple-date>
+                        </span></li>
+                      </ul>
+                      <p class="jb-index-summary jb-index-summary-notice"><a href="[##_notice_rep_link_##]">[##_notice_rep_summary_##]</a></p>
+                      <div class="jb-index-read-more jb-index-read-more-notice"><a href="[##_notice_rep_link_##]">더 읽기</a></div>
+                    </div></div><div class="jb-index-information-table-row"><div class="jb-index-information-table-cell jb-index-information-table-cell-2"></div></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </s_index_article_rep>
+          <s_permalink_article_rep>
+            <div class="jb-cell jb-cell-content jb-cell-content-article jb-cell-content-notice">
+              <article>
+                <header>
+                  <div class="jb-content-title jb-content-title-article jb-content-title-article-notice">
+                    <h1><a href="[##_notice_rep_link_##]">[##_notice_rep_title_##]</a></h1>
+                    <div class="jb-article-information jb-article-information-notice">
+                      <ul>
+                        <s_if_var_jb-post-show-author>
+                          <li class="jb-article-information-author jb-article-information-author-notice"><span>[##_notice_rep_author_##]</span></li>
+                        </s_if_var_jb-post-show-author>
+                        <li class="jb-article-information-category jb-article-information-category-notice"><span><a href="/notice">공지사항</a></span></li>
+                        <li class="jb-article-information-date jb-article-information-date-notice"><span>
+                          <s_not_var_jb-post-show-simple-date>[##_notice_rep_date_##]</s_not_var_jb-post-show-simple-date>
+                          <s_if_var_jb-post-show-simple-date>[##_notice_rep_simple_date_##]</s_if_var_jb-post-show-simple-date>
+                        </span></li>
+                      </ul>
+                    </div>
+                  </div>
+                </header>
+                <section>
+                  <div class="jb-content jb-content-article jb-content-article-notice">
+                    <div class="jb-article jb-article-notice">[##_notice_rep_desc_##]</div>
+                  </div>
+                </section>
+              </article>
+            </div>
+          </s_permalink_article_rep>
+        </s_notice_rep>
+        <s_article_protected>
+          <s_permalink_article_rep>
+            <div class="jb-cell jb-cell-content jb-cell-content-article jb-cell-content-article-protected">
+              <article>
+                <header>
+                  <div class="jb-content-title jb-content-title-article jb-content-title-article-protected">
+                    <h1><a href="[##_article_rep_link_##]">[##_article_rep_title_##]</a></h1>
+                    <div class="jb-article-information jb-article-information-protected">
+                      <ul>
+                        <s_if_var_jb-post-show-author>
+                          <li class="jb-article-information-author jb-article-information-author-protected"><span>[##_article_rep_author_##]</span></li>
+                        </s_if_var_jb-post-show-author>
+                        <li class="jb-article-information-category jb-article-information-category-protected"><span><a href="[##_article_rep_category_link_##]" class="jb-category-name">[##_article_rep_category_##]</a></span></li>
+                        <li class="jb-article-information-date jb-article-information-date-protected"><span>
+                          <s_not_var_jb-post-show-simple-date>[##_article_rep_date_##]</s_not_var_jb-post-show-simple-date>
+                          <s_if_var_jb-post-show-simple-date>[##_article_rep_simple_date_##]</s_if_var_jb-post-show-simple-date>
+                        </span></li>
+                      </ul>
+                    </div>
+                  </div>
+                </header>
+                <div class="jb-content jb-content-article jb-content-article-protected">
+                  <div class="jb-article jb-article-protected">
+                    <p>보호되어 있는 글입니다. 내용을 보시려면 비밀번호를 입력하세요.</p>
+                  </div>
+                  <div class="jb-form-article-protected-table">
+                    <div class="jb-form-article-protected-table-row">
+                      <div class="jb-form-article-protected-table-cell jb-form-article-protected-table-cell-input">
+                        <input type="password" maxlength="16" id="[##_article_password_##]" name="[##_article_password_##]" onkeydown="if (event.keyCode == 13)[##_article_dissolve_##]" class="jb-form-input-password">
+                      </div>
+                      <div class="jb-form-article-protected-table-cell jb-form-article-protected-table-cell-button">
+                        <button onclick="[##_article_dissolve_##]" class="jb-form-button"><i class="xi-key"></i></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </s_permalink_article_rep>
+        </s_article_protected>
+        <s_article_rep>
+          <s_permalink_article_rep>
+            <div class="jb-cell jb-cell-content jb-cell-content-article">
+              <article>
+                <header>
+                  <div class="jb-content-title jb-content-title-article">
+                    <h1><a href="[##_article_rep_link_##]">[##_article_rep_title_##]</a></h1>
+                    <div class="jb-article-information">
+                      <ul>
+                        <s_if_var_jb-post-show-author>
+                          <li class="jb-article-information-author"><span>[##_article_rep_author_##]</span></li>
+                        </s_if_var_jb-post-show-author>
+                        <li class="jb-article-information-category"><span><a href="[##_article_rep_category_link_##]" class="jb-category-name">[##_article_rep_category_##]</a></span></li>
+                        <li class="jb-article-information-date"><span>
+                          <s_not_var_jb-post-show-simple-date>[##_article_rep_date_##]</s_not_var_jb-post-show-simple-date>
+                          <s_if_var_jb-post-show-simple-date>[##_article_rep_simple_date_##]</s_if_var_jb-post-show-simple-date>
+                        </span></li>
+                        <s_ad_div>
+                          <li class="jb-admin">
+                            <div class="jb-admin-button"><i class="xi-cog"></i></div>
+                            <div class="jb-admin-menu">
+                              <ul>
+                                <li><a href="[##_s_ad_m_link_##]">수정</a></li>
+                                <li><a href="#" onclick="[##_s_ad_m_onclick_##]">수정(새창)</a></li>
+                                <li>([##_s_ad_s1_label_##]) <i class="xi-long-arrow-right"></i> <a href="#" onclick="[##_s_ad_s2_onclick_##]">[##_s_ad_s2_label_##]</a></li>
+                                <li><a href="#" onclick="[##_s_ad_d_onclick_##]">삭제</a></li>
+                              </ul>
+                            </div>
+                          </li>
+                        </s_ad_div>
+                      </ul>
+                    </div>
+                  </div>
+                </header>
+                <s_sidebar>
+                  <s_sidebar_element><!-- 본문 상단 --></s_sidebar_element>
+                </s_sidebar>
+                <s_if_var_jb-adsense-content-top-left-right-show>
+                  <script>
+                    document.write( jbAdSenseContentTopLeftRight );
+                  </script>
+                </s_if_var_jb-adsense-content-top-left-right-show>
+                <s_if_var_jb-adsense-content-top-show>
+                  <script>
+                    document.write( jbAdSenseContentTop );
+                  </script>
+                </s_if_var_jb-adsense-content-top-show>
+                <s_if_var_jb-adsense-content-top-right-show>
+                  <script>
+                    document.write( jbAdSenseContentTopRight );
+                  </script>
+                </s_if_var_jb-adsense-content-top-right-show>
+                <section>
+                  <div class="jb-content jb-content-article">
+                    <div class="jb-article">[##_article_rep_desc_##]</div>
+                    <s_if_var_jb-toc-show-auto>
+                      <script>
+                        $( 'ul#jb-toc' ).remove();
+                        if ( $( '.jb-article h1' ).length > 1 || $( '.jb-article h2' ).length > 1 ) {
+                          $( '.jb-article' ).before( '<ul id="jb-toc"></ul>' );
+                        }
+                      </script>
+                    </s_if_var_jb-toc-show-auto>
+                  </div>
+                </section>
+                <s_tag_label>
+                  <p class="jb-article-tag"><span class="jb-article-tag-list">[##_tag_label_rep_##]</span></p>
+                </s_tag_label>
+                <s_if_var_jb-adsense-content-bottom-show>
+                  <script>
+                    document.write( jbAdSenseContentBottom );
+                  </script>
+                </s_if_var_jb-adsense-content-bottom-show>
+                <s_sidebar>
+                  <s_sidebar_element><!-- 본문 하단 --></s_sidebar_element>
+                </s_sidebar>
+                <s_if_var_jb-post-show-related>
+                  <s_article_related>
+                    <script>
+                      if ( $( 'html' ).hasClass( 'jb-index-related-type-02' ) ) { jbThumbnailSizeRelated = '480x270'; }
+                    </script>
+                    <div class="jb-related">
+                      <div class="jb-related-header-table">
+                        <div class="jb-related-header-table-row">
+                          <div class="jb-related-header-table-cell jb-related-header-table-cell-title">
+                            <h2><span class="jb-category-name">'[##_article_rep_category_##]'</span> 관련 글</h2>
+                          </div>
+                          <div class="jb-related-header-table-cell jb-related-header-table-cell-more">
+                            <div class="jb-related-more"><a href="[##_article_rep_category_link_##]">더 보기</a></div>
+                          </div>
+                        </div>
+                      </div>
+                      <s_article_related_rep>
+                        <div class="jb-cell jb-cell-index-related [##_article_related_rep_type_##]">
+                          <div class="jb-index-related-table">
+                            <div class="jb-index-related-table-row">
+                              <div class="jb-index-related-table-cell jb-index-related-table-cell-thumbnail">
+                                <a href="[##_article_related_rep_link_##]">
+                                  <s_article_related_rep_thumbnail>
+                                    <div class="jb-index-related-thumbnail">
+                                      <script>
+                                        document.write( '<img src="//i1.daumcdn.net/thumb/C' + jbThumbnailSizeRelated + '/?fname=[##_article_related_rep_thumbnail_link_##]" alt="" loading="lazy">' );
+                                      </script>
+                                    </div>
+                                  </s_article_related_rep_thumbnail>
+                                </a>
+                              </div>
+                              <div class="jb-index-related-table-cell jb-index-related-table-cell-information">
+                                <div class="jb-index-related-information-table"><div class="jb-index-related-information-table-row"><div class="jb-index-related-information-table-cell jb-index-related-information-table-cell-1">
+                                  <h3 class="jb-index-related-title"><a href="[##_article_related_rep_link_##]">[##_article_related_rep_title_##]</a></h3>
+                                  <ul class="jb-index-related-information">
+                                    <li class="jb-index-related-information-date">[##_article_related_rep_date_##]</li>
+                                  </ul>
+                                  <div class="jb-index-related-read-more"><a href="[##_article_related_rep_link_##]">더 읽기</a></div>
+                                </div></div><div class="jb-index-related-information-table-row"><div class="jb-index-related-information-table-cell jb-index-related-information-table-cell-2"></div></div></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </s_article_related_rep>
+                    </div>
+                  </s_article_related>
+                </s_if_var_jb-post-show-related>
+                <s_rp>
+                  <s_if_var_jb-new-comment>
+                    [##_comment_group_##]
+                  </s_if_var_jb-new-comment>
+                  <s_not_var_jb-new-comment>
+                  <p class="jb-discuss-count">
+                    <span class="jb-discuss-count-reply"><a href="#rp" onclick="[##_article_rep_rp_link_##]"><span class="jb-discuss-count-label">댓글</span><s_rp_count><span class="jb-discuss-count-number">([##_article_rep_rp_cnt_##])</span></s_rp_count></a></span>
+                  </p>
+                  <s_rp_container>
+                    <div class="jb-wrap-discuss-list jb-wrap-discuss-list-reply">
+                      <ul class="jb-discuss-list-level-1">
+                        <s_rp_rep>
+                          <li id="[##_rp_rep_id_##]" class="[##_rp_rep_class_##]">
+                            <table class="jb-discuss-table jb-discuss-table-reply">
+                              <tr class="jb-discuss-table-row jb-discuss-table-row-reply">
+                                <td class="jb-discuss-table-cell jb-discuss-table-cell-logo jb-discuss-table-cell-reply jb-discuss-table-cell-logo-reply">
+                                  <div class="jb-discuss-information-logo"><img src="[##_rp_rep_logo_##]" alt=""></div>
+                                </td>
+                                <td class="jb-discuss-table-cell jb-discuss-table-cell-name jb-discuss-table-cell-reply jb-discuss-table-cell-name-reply">
+                                  <div class="jb-discuss-information-name">[##_rp_rep_name_##]</div>
+                                  <div class="jb-discuss-information-date">[##_rp_rep_date_##]</div>
+                                </td>
+                              </tr>
+                              <tr class="jb-discuss-table-row jb-discuss-table-row-reply">
+                                <td colspan="2" class="jb-discuss-table-cell jb-discuss-table-cell-desc jb-discuss-table-cell-reply jb-discuss-table-cell-desc-reply">
+                                  <p class="jb-discuss-content">[##_rp_rep_desc_##]</p>
+                                </td>
+                              </tr>
+                              <tr class="jb-discuss-table-row jb-discuss-table-row-reply">
+                                <td colspan="2" class="jb-discuss-table-cell jb-discuss-table-cell-reaction jb-discuss-table-cell-reply jb-discuss-table-cell-reaction-reply">
+                                  <div class="jb-discuss-reaction">
+                                    <a href="#" onclick="[##_rp_rep_onclick_reply_##]" class="jb-discuss-reaction-reply">답글</a>
+                                    <a href="#" onclick="[##_rp_rep_onclick_delete_##]" class="jb-discuss-reaction-edit">수정</a>
+                                  </div>
+                                </td>
+                              </tr>
+                            </table>
+                            <s_rp2_container>
+                              <ul class="jb-discuss-list-level-2">
+                                <s_rp2_rep>
+                                  <li id="[##_rp_rep_id_##]" class="[##_rp_rep_class_##]">
+                                    <table class="jb-discuss-table jb-discuss-table-reply">
+                                      <tr class="jb-discuss-table-row jb-discuss-table-row-reply">
+                                        <td class="jb-discuss-table-cell jb-discuss-table-cell-logo jb-discuss-table-cell-reply jb-discuss-table-cell-logo-reply">
+                                          <div class="jb-discuss-information-logo"><img src="[##_rp_rep_logo_##]" alt=""></div>
+                                        </td>
+                                        <td class="jb-discuss-table-cell jb-discuss-table-cell-name jb-discuss-table-cell-reply jb-discuss-table-cell-name-reply">
+                                          <div class="jb-discuss-information-name">[##_rp_rep_name_##]</div>
+                                          <div class="jb-discuss-information-date">[##_rp_rep_date_##]</div>
+                                        </td>
+                                      </tr>
+                                      <tr class="jb-discuss-table-row jb-discuss-table-row-reply">
+                                        <td colspan="2" class="jb-discuss-table-cell jb-discuss-table-cell-desc jb-discuss-table-cell-reply jb-discuss-table-cell-desc-reply">
+                                          <p class="jb-discuss-content">[##_rp_rep_desc_##]</p>
+                                        </td>
+                                      </tr>
+                                      <tr class="jb-discuss-table-row jb-discuss-table-row-reply">
+                                        <td colspan="2" class="jb-discuss-table-cell jb-discuss-table-cell-reaction jb-discuss-table-cell-reply jb-discuss-table-cell-reaction-reply">
+                                          <div class="jb-discuss-reaction">
+                                            <a href="#" onclick="[##_rp_rep_onclick_delete_##]" class="jb-discuss-reaction-edit">수정</a>
+                                          </div>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                  </li>
+                                </s_rp2_rep>
+                              </ul>
+                            </s_rp2_container>
+                          </li>
+                        </s_rp_rep>
+                      </ul>
+                    </div>
+                  </s_rp_container>
+                  <s_rp_input_form>
+                    <div class="jb-wrap-form-discuss jb-wrap-form-discuss-reply">
+                      <s_rp_member>
+                        <s_rp_guest>
+                          <div class="jb-form-discuss jb-form-discuss-name jb-form-discuss-table">
+                            <div class="jb-form-discuss-table-row">
+                              <div class="jb-form-discuss-table-cell jb-form-discuss-table-cell-icon">
+                                <div class="jb-form-discuss-icon jb-form-discuss-icon-name">
+                                  <i class="xi-user"></i>
+                                </div>
+                              </div>
+                              <div class="jb-form-discuss-table-cell jb-form-discuss-table-cell-input">
+                                <input type="text" id="[##_rp_input_name_##]_[##_article_rep_id_##]" name="[##_rp_input_name_##]" value="[##_guest_name_##]" placeholder="Name" class="jb-form-input-text">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="jb-form-discuss jb-form-discuss-homepage jb-form-discuss-table">
+                            <div class="jb-form-discuss-table-row">
+                              <div class="jb-form-discuss-table-cell jb-form-discuss-table-cell-icon">
+                                <div class="jb-form-discuss-icon jb-form-discuss-icon-homepage">
+                                  <i class="xi-home"></i>
+                                </div>
+                              </div>
+                              <div class="jb-form-discuss-table-cell jb-form-discuss-table-cell-input">
+                                <input type="text" id="[##_rp_input_homepage_##]_[##_article_rep_id_##]" name="[##_rp_input_homepage_##]" value="[##_guest_homepage_##]" class="jb-form-input-text">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="jb-form-discuss jb-form-discuss-password jb-form-discuss-table">
+                            <div class="jb-form-discuss-table-row">
+                              <div class="jb-form-discuss-table-cell jb-form-discuss-table-cell-icon">
+                                <div class="jb-form-discuss-icon jb-form-discuss-icon-password">
+                                  <i class="xi-key"></i>
+                                </div>
+                              </div>
+                              <div class="jb-form-discuss-table-cell jb-form-discuss-table-cell-input">
+                                <input type="password" id="[##_rp_input_password_##]_[##_article_rep_id_##]" name="[##_rp_input_password_##]" value="[##_rp_admin_check_##]" placeholder="Password" class="jb-form-input-text">
+                              </div>
+                            </div>
+                          </div>
+                        </s_rp_guest>
+                        <div class="jb-form-discuss jb-form-discuss-secret jb-form-discuss-table">
+                          <div class="jb-form-discuss-table-row">
+                            <div class="jb-form-discuss-table-cell jb-form-discuss-table-cell-checkbox">
+                              <input type="checkbox" id="[##_rp_input_is_secret_##]" name="[##_rp_input_is_secret_##]" value="1" class="jb-form-input-checkbox">
+                              <label for="[##_rp_input_is_secret_##]" class="jb-form-label jb-form-label-secret jb-form-label-secret-icon"></label>
+                            </div>
+                            <div class="jb-form-discuss-table-cell jb-form-discuss-table-cell-label">
+                              <label for="[##_rp_input_is_secret_##]" class="jb-form-label jb-form-label-secret jb-form-label-secret-text">비밀 글</label>
+                            </div>
+                          </div>
+                        </div>
+                      </s_rp_member>
+                      <div class="jb-form-discuss jb-form-discuss-content">
+                        <textarea name="[##_rp_input_comment_##]" class="jb-form-textarea"></textarea>
+                      </div>
+                      <div class="jb-form-discuss jb-form-discuss-submit">
+                        <button onclick="[##_rp_onclick_submit_##]" class="jb-form-button">등록</button>
+                      </div>
+                    </div>
+                  </s_rp_input_form>
+                  </s_not_var_jb-new-comment>
+                </s_rp>
+              </article>
+            </div>
+          </s_permalink_article_rep>
+        </s_article_rep>
+        <s_paging>
+          <div class="jb-cell jb-cell-pagination">
+            <div class="jb-pagination">
+              <ul>
+                <li><a [##_prev_page_##]>&#x2039;</a></li>
+                <s_paging_rep>
+                  <li><a [##_paging_rep_link_##]>[##_paging_rep_link_num_##]</a></li>
+                </s_paging_rep>
+                <li><a [##_next_page_##]>&#x203A;</a></li>
+              </ul>
+            </div>
+          </div>
+        </s_paging>
+      </div>
+      <s_if_var_jb-sidebar-right-show><div class="jb-column jb-column-sidebar">
+        <aside>
+          <h2 class="jb-section-title jb-section-title-sidebar">Sidebar - Right</h2>
+          <s_sidebar>
+            <s_sidebar_element><!-- 오른쪽 사이드바 --></s_sidebar_element>
+            <s_sidebar_element><!-- 블로그 정보 -->
+              <div class="jb-cell jb-cell-module jb-cell-module-blog-information">
+                <div class="jb-module-title jb-module-title-blog-information">
+                  <h3>블로그 정보</h3>
+                </div>
+                <div class="jb-module-content jb-module-content-blog-information">
+                  <p class="jb-blog-information jb-blog-information-image"><img src="[##_image_##]" alt="" loading="lazy"></p>
+                  <p class="jb-blog-information jb-blog-information-blogger">[##_blogger_##]</p>
+                  <p class="jb-blog-information jb-blog-information-description">[##_desc_##]</p>
+                </div>
+              </div>
+            </s_sidebar_element>
+            <s_sidebar_element><!-- SNS -->
+              <div class="jb-cell jb-cell-module jb-cell-module-follow-me">
+                <div class="jb-module-title jb-module-title-follow-me">
+                  <h3>Follow Me</h3>
+                </div>
+                <div class="jb-module-content jb-module-content-follow-me">
+                  <div class="jb-follow-me-wrap">
+                    <s_if_var_jb-sns-facebook-url>
+                      <div class="jb-follow-me jb-follow-me-facebook"><a href="[##_var_jb-sns-facebook-url_##]" target="_blank" rel="noopener noreferrer"><i class="xi-facebook"></i></a></div>
+                    </s_if_var_jb-sns-facebook-url>
+                    <s_if_var_jb-sns-instagram-url>
+                      <div class="jb-follow-me jb-follow-me-instagram"><a href="[##_var_jb-sns-instagram-url_##]" target="_blank" rel="noopener noreferrer"><i class="xi-instagram"></i></a></div>
+                    </s_if_var_jb-sns-instagram-url>
+                    <s_if_var_jb-sns-twitter-url>
+                      <div class="jb-follow-me jb-follow-me-twitter"><a href="[##_var_jb-sns-twitter-url_##]" target="_blank" rel="noopener noreferrer"><i class="xi-twitter"></i></a></div>
+                    </s_if_var_jb-sns-twitter-url>
+                    <s_if_var_jb-sns-kakaostory-url>
+                      <div class="jb-follow-me jb-follow-me-kakaostory"><a href="[##_var_jb-sns-kakaostory-url_##]" target="_blank" rel="noopener noreferrer"><i class="xi-kakaostory"></i></a></div>
+                    </s_if_var_jb-sns-kakaostory-url>
+                    <s_if_var_jb-sns-pinterest-url>
+                      <div class="jb-follow-me jb-follow-me-pinterest"><a href="[##_var_jb-sns-pinterest-url_##]" target="_blank" rel="noopener noreferrer"><i class="xi-pinterest"></i></a></div>
+                    </s_if_var_jb-sns-pinterest-url>
+                    <s_if_var_jb-sns-linkedin-url>
+                      <div class="jb-follow-me jb-follow-me-linkedin"><a href="[##_var_jb-sns-linkedin-url_##]" target="_blank" rel="noopener noreferrer"><i class="xi-linkedin"></i></a></div>
+                    </s_if_var_jb-sns-linkedin-url>
+                    <s_if_var_jb-sns-youtube-url>
+                      <div class="jb-follow-me jb-follow-me-youtube"><a href="[##_var_jb-sns-youtube-url_##]" target="_blank" rel="noopener noreferrer"><i class="xi-youtube-play"></i></a></div>
+                    </s_if_var_jb-sns-youtube-url>
+                  </div>
+                </div>
+              </div>
+            </s_sidebar_element>
+            <s_sidebar_element><!-- 공지사항 -->
+              <div class="jb-cell jb-cell-module jb-cell-module-notices">
+                <div class="jb-module-title jb-module-title-notices">
+                  <h3>공지사항</h3>
+                </div>
+                <div class="jb-module-content jb-module-content-notices jb-module-content-list">
+                  <s_rct_notice>
+                    <ul>
+                      <s_rct_notice_rep>
+                        <li><span class="jb-module-list"><a href="[##_notice_rep_link_##]">[##_notice_rep_title_##]</a></span></li>
+                      </s_rct_notice_rep>
+                    </ul>
+                  </s_rct_notice>
+                </div>
+              </div>
+            </s_sidebar_element>
+            <s_sidebar_element><!-- 검색 -->
+              <div class="jb-cell jb-cell-module jb-cell-module-search">
+                <div class="jb-module-title jb-module-title-search">
+                  <h3>검색</h3>
+                </div>
+                <div class="jb-module-content jb-module-content-search">
+                  <div class="jb-form-search-sidebar-table">
+                    <div class="jb-form-search-sidebar-table-row">
+                      <div class="jb-form-search-sidebar-table-cell jb-form-search-sidebar-table-cell-input">
+                        <input type="text" name="jb-search-sidebar" value="" onkeypress="if (event.keyCode == 13) { try{window.location.href='/search/'+looseURIEncode(document.getElementsByName('jb-search-sidebar')[0].value);document.getElementsByName('jb-search-sidebar')[0].value='';return false;}catch(e){} }" placeholder="Search..." class="jb-form-input-text">
+                      </div>
+                      <div class="jb-form-search-sidebar-table-cell jb-form-search-sidebar-table-cell-button">
+                        <button type="button" onclick="try{window.location.href='/search/'+looseURIEncode(document.getElementsByName('jb-search-sidebar')[0].value);document.getElementsByName('jb-search-sidebar')[0].value='';return false;}catch(e){}" class="jb-form-button"><i class="xi-search"></i></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </s_sidebar_element>
+            <s_sidebar_element><!-- 카테고리 -->
+              <div class="jb-cell jb-cell-module jb-cell-module-category">
+                <div class="jb-module-title jb-module-title-category">
+                  <h3>카테고리</h3>
+                </div>
+                <div class="jb-module-content jb-module-content-category">
+                  [##_category_list_##]
+                </div>
+              </div>
+            </s_sidebar_element>
+            <s_sidebar_element><!-- 카테고리 - 접기 펴기 -->
+              <div class="jb-cell jb-cell-module jb-cell-module-category jb-cell-module-category-fold">
+                <div class="jb-module-title jb-module-title-category jb-module-title-category-fold">
+                  <h3>카테고리</h3>
+                </div>
+                <div class="jb-module-content jb-module-content-category jb-module-content-category-fold">
+                  [##_category_list_##]
+                </div>
+              </div>
+            </s_sidebar_element>
+            <s_sidebar_element><!-- 태그 -->
+              <div class="jb-cell jb-cell-module jb-cell-module-tags">
+                <div class="jb-module-title jb-module-title-tags">
+                  <h3>태그</h3>
+                </div>
+                <div class="jb-module-content jb-module-content-tags">
+                  <ul>
+                    <s_random_tags>
+                      <li><a href="[##_tag_link_##]" class="[##_tag_class_##]">[##_tag_name_##]</a></li>
+                    </s_random_tags>
+                  </ul>
+                </div>
+              </div>
+            </s_sidebar_element>
+            <s_sidebar_element><!-- 달력 -->
+              <div class="jb-cell jb-cell-module jb-cell-module-calendar">
+                <div class="jb-module-title jb-module-title-calendar">
+                  <h3>달력</h3>
+                </div>
+                <div class="jb-module-content jb-module-content-calendar">
+                  [##_calendar_##]
+                </div>
+              </div>
+            </s_sidebar_element>
+            <s_sidebar_element> <!-- 보관함 -->
+              <div class="jb-cell jb-cell-module jb-cell-module-archives">
+                <div class="jb-module-title jb-module-title-archives">
+                  <h3>보관함</h3>
+                </div>
+                <div class="jb-module-content jb-module-content-archives jb-module-content-list">
+                  <ul>
+                    <s_archive_rep>
+                      <li><span class="jb-module-list"><a href="[##_archive_rep_link_##]"><span class="jb-archives-date">[##_archive_rep_date_##]</span><span class="jb-archives-count">([##_archive_rep_count_##])</span></a></span></li>
+                    </s_archive_rep>
+                  </ul>
+                </div>
+              </div>
+            </s_sidebar_element>
+            <s_sidebar_element><!-- 링크 -->
+              <div class="jb-cell jb-cell-module jb-cell-module-links">
+                <div class="jb-module-title jb-module-title-links">
+                  <h3>링크</h3>
+                </div>
+                <div class="jb-module-content jb-module-content-links jb-module-content-list">
+                  <ul>
+                    <s_link_rep>
+                      <li><span class="jb-module-list"><a href="[##_link_url_##]">[##_link_site_##]</a></span></li>
+                    </s_link_rep>
+                  </ul>
+                </div>
+              </div>
+            </s_sidebar_element>
+            <s_sidebar_element><!-- 통계 -->
+              <div class="jb-cell jb-cell-module jb-cell-module-statistics">
+                <div class="jb-module-title jb-module-title-statistics">
+                  <h3>통계</h3>
+                </div>
+                <div class="jb-module-content jb-module-content-statistics jb-module-content-list">
+                  <ul>
+                    <li><span class="jb-module-list"><span class="jb-statistics-label">전체 : </span><span class="jb-statistics-count">[##_count_total_##]</span></span></li>
+                    <li><span class="jb-module-list"><span class="jb-statistics-label">오늘 : </span><span class="jb-statistics-count">[##_count_today_##]</span></span></li>
+                    <li><span class="jb-module-list"><span class="jb-statistics-label">어제 : </span><span class="jb-statistics-count">[##_count_yesterday_##]</span></span></li>
+                  </ul>
+                </div>
+              </div>
+            </s_sidebar_element>
+            <s_sidebar_element><!-- 관리자 메뉴 -->
+              <div class="jb-cell jb-cell-module jb-cell-module-admin">
+                <div class="jb-module-title jb-module-title-admin">
+                  <h3>관리</h3>
+                </div>
+                <div class="jb-module-content jb-module-content-admin jb-module-content-list">
+                  <ul>
+                    <li><span class="jb-module-list"><a href="[##_owner_url_##]">관리자</a></span></li>
+                    <li><span class="jb-module-list"><a href="[##_owner_url_##]/entry/post">글쓰기</a></span></li>
+                  </ul>
+                </div>
+              </div>
+            </s_sidebar_element>
+          </s_sidebar>
+        </aside>
+      </div></s_if_var_jb-sidebar-right-show>
+    </div>
+    <div class="jb-row jb-row-line jb-row-line-main-bottom">
+      <div class="jb-column jb-column-line jb-column-line-main-bottom">
+        <div class="jb-line jb-line-main-bottom"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="jb-background jb-background-main-bottom">
+  <div class="jb-container jb-container-main-bottom">
+    <div class="jb-row jb-row-main-bottom">
+      <div class="jb-column jb-column-main-bottom">
+        <div class="jb-cell jb-cell-main-bottom">
+          <s_if_var_jb-adsense-main-bottom-show>
+            <script>
+              document.write( jbAdSenseMainBottom );
+            </script>
+          </s_if_var_jb-adsense-main-bottom-show>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<s_if_var_jb-sidebar-bottom-show><div class="jb-background jb-background-footer">
+  <div class="jb-container jb-container-footer">
+    <div class="jb-row jb-row-line jb-row-line-footer-top">
+      <div class="jb-column jb-column-line jb-column-line-footer-top">
+        <div class="jb-line jb-line-footer-top"></div>
+      </div>
+    </div>
+    <div class="jb-row jb-row-footer">
+      <div class="jb-column jb-column-footer jb-column-footer-1">
+        <aside>
+          <h2 class="jb-section-title jb-section-title-sidebar">Sidebar - Footer 1</h2>
+          <s_sidebar>
+            <s_sidebar_element><!-- 아래쪽 사이드바 1 --></s_sidebar_element>
+            <s_sidebar_element><!-- 최근 글 -->
+              <div class="jb-cell jb-cell-module jb-cell-module-recent-posts">
+                <div class="jb-module-title jb-module-title-recent-posts">
+                  <h3>최근 글</h3>
+                </div>
+                <div class="jb-module-content jb-module-content-recent-posts jb-module-content-list">
+                  <ul>
+                    <s_rctps_rep>
+                      <li><a href="[##_rctps_rep_link_##]"><span class="jb-module-list-table"><span class="jb-module-list-table-row"><s_if_var_jb-recent-posts-thumbnail-show><span class="jb-module-list-table-cell jb-module-list-table-cell-1"><s_rctps_rep_thumbnail><img src="//i1.daumcdn.net/thumb/C60x60/?fname=[##_rctps_rep_thumbnail_##]" alt=""></s_rctps_rep_thumbnail></span></s_if_var_jb-recent-posts-thumbnail-show><span class="jb-module-list-table-cell jb-module-list-table-cell-2"><span class="jb-recent-posts-title">[##_rctps_rep_title_##]</span><span class="jb-recent-posts-reply-count">[##_rctps_rep_rp_cnt_##]</span><span class="jb-recent-posts-author">[##_rctps_rep_author_##]</span></span></span></span></a></li>
+                    </s_rctps_rep>
+                  </ul>
+                </div>
+              </div>
+            </s_sidebar_element>
+          </s_sidebar>
+        </aside>
+      </div>
+      <div class="jb-column jb-column-footer jb-column-footer-2">
+        <aside>
+          <h2 class="jb-section-title jb-section-title-sidebar">Sidebar - Footer 2</h2>
+          <s_sidebar>
+            <s_sidebar_element><!-- 아래쪽 사이드바 2 --></s_sidebar_element>
+            <s_sidebar_element><!-- 인기 글 -->
+              <div class="jb-cell jb-cell-module jb-cell-module-recent-posts jb-cell-module-popular-posts">
+                <div class="jb-module-title jb-module-title-recent-posts jb-module-title-popular-posts">
+                  <h3>인기 글</h3>
+                </div>
+                <div class="jb-module-content jb-module-content-recent-posts jb-module-content-list">
+                  <ul>
+                    <s_rctps_popular_rep>
+                      <li><a href="[##_rctps_rep_link_##]"><span class="jb-module-list-table"><span class="jb-module-list-table-row"><s_if_var_jb-recent-posts-thumbnail-show><span class="jb-module-list-table-cell jb-module-list-table-cell-1"><s_rctps_rep_thumbnail><img src="//i1.daumcdn.net/thumb/C60x60/?fname=[##_rctps_rep_thumbnail_##]" alt=""></s_rctps_rep_thumbnail></span></s_if_var_jb-recent-posts-thumbnail-show><span class="jb-module-list-table-cell jb-module-list-table-cell-2"><span class="jb-recent-posts-title">[##_rctps_rep_title_##]</span><span class="jb-recent-posts-reply-count">[##_rctps_rep_rp_cnt_##]</span><span class="jb-recent-posts-author">[##_rctps_rep_author_##]</span></span></span></span></a></li>
+                    </s_rctps_popular_rep>
+                  </ul>
+                </div>
+              </div>
+            </s_sidebar_element>
+          </s_sidebar>
+        </aside>
+      </div>
+      <div class="jb-column jb-column-footer jb-column-footer-3">
+        <aside>
+          <h2 class="jb-section-title jb-section-title-sidebar">Sidebar - Footer 3</h2>
+          <s_sidebar>
+            <s_sidebar_element><!-- 아래쪽 사이드바 3 --></s_sidebar_element>
+            <s_sidebar_element><!-- 최근 댓글 -->
+              <div class="jb-cell jb-cell-module jb-cell-module-recent-replies">
+                <div class="jb-module-title jb-module-title-recent-replies">
+                  <h3>최근 댓글</h3>
+                </div>
+                <div class="jb-module-content jb-module-content-recent-replies jb-module-content-list">
+                  <ul>
+                    <s_rctrp_rep>
+                      <li><span class="jb-module-list"><a href="[##_rctrp_rep_link_##]"><span class="jb-recent-replies-title">[##_rctrp_rep_desc_##]</span><span class="jb-recent-replies-name">[##_rctrp_rep_name_##]</span><span class="jb-recent-replies-time">[##_rctrp_rep_time_##]</span></a></span></li>
+                    </s_rctrp_rep>
+                  </ul>
+                </div>
+              </div>
+            </s_sidebar_element>
+          </s_sidebar>
+        </aside>
+      </div>
+    </div>
+    <div class="jb-row jb-row-line jb-row-line-footer-bottom">
+      <div class="jb-column jb-column-line jb-column-line-footer-bottom">
+        <div class="jb-line jb-line-footer-bottom"></div>
+      </div>
+    </div>
+  </div>
+</div></s_if_var_jb-sidebar-bottom-show>
+
+<div class="jb-background jb-background-foot">
+  <div class="jb-container jb-container-foot">
+    <div class="jb-row jb-row-line jb-row-line-foot-top">
+      <div class="jb-column jb-column-line jb-column-line-foot-top">
+        <div class="jb-line jb-line-foot-top"></div>
+      </div>
+    </div>
+    <div class="jb-row jb-row-foot">
+      <div class="jb-column jb-column-foot jb-column-foot-1">
+        <div class="jb-cell jb-cell-foot jb-cell-foot-1">
+          <div class="jb-copyright">
+            <h2>Copyright © <a href="https://github.com/ColdBrewony" target="_blank" rel="noopener noreferrer">ColdBrewony</a> All Rights Reserved</h2>
+          </div>
+        </div>
+      </div>
+      <div class="jb-column jb-column-foot jb-column-foot-2">
+        <div class="jb-cell jb-cell-foot jb-cell-foot-2">
+          <div class="jb-designed">
+            <h2>Designed by <a href="https://github.com/ColdBrewony" target="_blank" rel="noopener noreferrer">ColdBrewony</a></h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="jb-row jb-row-line jb-row-line-foot-bottom">
+      <div class="jb-column jb-column-line jb-column-line-foot-bottom">
+        <div class="jb-line jb-line-foot-bottom"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<a href="#" class="jb-top">↑</a>
+
+<script>
+  jQuery( document ).ready( function( $ ) {
+    // Frontpage, Notice
+      if ( $( 'body' ).attr( 'id' ) == 'tt-body-index' && jbCurrentUrl.indexOf( '/notice' ) < 0 && $( '#jb-cover-group' ).attr( 'class' ) !== 'jb-cover-group' ) {
+        $( 'body' ).addClass( 'jb-body-frontpage' );
+      }
+      if ( $( 'body' ).attr( 'id' ) == 'tt-body-index' && jbCurrentUrl.indexOf( '/notice' ) > -1 ) {
+        $( 'body' ).addClass( 'jb-body-notice' );
+      }
+      if ( $( 'body' ).attr( 'id' ) == 'tt-body-index' && $( '#jb-cover-group' ).attr( 'class' ) == 'jb-cover-group' ) {
+        $( 'body' ).addClass( 'jb-body-frontpage-cover' );
+      }
+    // Layout
+      $( '.jb-layout-02 .jb-column-sidebar' ).remove();
+    // Menu
+      $( '.jb-bars i' ).click( function() {
+        $( '.jb-header-table-cell-search' ).slideToggle();
+        $( '.jb-cell-navigation' ).slideToggle();
+      } );
+    // Admin Menu
+      $( '.jb-admin-button' ).click( function() {
+        $( '.jb-admin-menu' ).slideToggle();
+      } );
+    // Index
+      $( '.jb-cell-index' ).wrapAll( '<div class="jb-cell jb-cell-content jb-cell-content-index"><div class="jb-row-index"></div></div>' );
+      $( '.jb-index-table-cell-thumbnail a' ).not( ':has( .jb-index-thumbnail )' ).append( '<div class="jb-index-thumbnail jb-index-thumbnail-no-image"><img src="./images/jb-blank-' + jbThumbnailSize + '.png" alt=""></div>' );
+      $( 'body.jb-body-notice .jb-column-content' ).prepend( '<div class="jb-cell jb-cell-content jb-cell-content-notice-list"><header><div class="jb-content-title jb-content-title-notice-list"><h2>공지사항</h2></div></header></div>' );
+      $( 'body.jb-body-notice  .jb-index-table-cell-thumbnail-notice' ).each( function() {
+        var jbNoticeUrl = $( 'a', this ).attr( 'href' );
+        var jbNoticeThis = this;
+        $.ajax( {
+          url: jbNoticeUrl,
+          success: function( jbNoticeHtml ) {
+            var jbNoticeImgSrcStart = jbNoticeHtml.indexOf( 'meta property="og:image" content="' )+34;
+            var jbNoticeImgSrcEnd = jbNoticeHtml.indexOf( '"', jbNoticeImgSrcStart );
+            var jbNoticeImgSrc = jbNoticeHtml.substring( jbNoticeImgSrcStart, jbNoticeImgSrcEnd );
+            if ( typeof jbNoticeImgSrc !== 'undefined' && jbNoticeImgSrc.indexOf( '/icon/' ) < 0 ) {
+              jbNoticeImgSrc = '//i1.daumcdn.net/thumb/C' + jbThumbnailSize + '/?fname=' + jbNoticeImgSrc;
+              $( 'img', jbNoticeThis ).attr( 'src', jbNoticeImgSrc );
+            }
+          }
+        } );
+      } );
+    // Index Related
+      $( '.jb-cell-index-related' ).wrapAll( '<div class="jb-cell jb-cell-content jb-cell-content-index-related"><div class="jb-row-index-related"></div></div>' );
+      $( '.jb-index-related-table-cell-thumbnail a' ).not( ':has( .jb-index-related-thumbnail )' ).append( '<div class="jb-index-related-thumbnail jb-index-related-thumbnail-no-image"><img src="./images/jb-blank-' + jbThumbnailSizeRelated + '.png" alt=""></div>' );
+    // Cover Type 02
+      $( '.jb-cover-type-02 .jb-cover-table-cell-thumbnail a' ).not( ':has( .jb-cover-thumbnail )' ).append( '<div class="jb-cover-thumbnail jb-cover-thumbnail-no-image"><img src="./images/jb-blank-300x300.png" alt=""></div>' );
+    // Cover Type 03
+      $( '.jb-cover-type-03 .jb-cover-table-cell-thumbnail a' ).not( ':has( .jb-cover-thumbnail )' ).append( '<div class="jb-cover-thumbnail jb-cover-thumbnail-no-image"><img src="./images/jb-blank-300x300.png" alt=""></div>' );
+    // Cover Type 04
+      $( '.jb-cover-type-04 .jb-cover-table-cell-thumbnail a' ).not( ':has( .jb-cover-thumbnail )' ).append( '<div class="jb-cover-thumbnail jb-cover-thumbnail-no-image"><img src="./images/jb-blank-400x300.png" alt=""></div>' );
+    // Cover Type 05
+      $( '.jb-cover-type-05 .jb-cover-table-cell-thumbnail a' ).not( ':has( .jb-cover-thumbnail )' ).append( '<div class="jb-cover-thumbnail jb-cover-thumbnail-no-image"><img src="./images/jb-blank-480x270.png" alt=""></div>' );
+    // Cover Type 06
+      $( '.jb-cover-type-06 .jb-cover-table-cell-thumbnail a' ).not( ':has( .jb-cover-thumbnail )' ).append( '<div class="jb-cover-thumbnail jb-cover-thumbnail-no-image"><img src="./images/jb-blank-480x640.png" alt=""></div>' );
+    // Cover Type 105
+      $( '.jb-cover-type-105 .jb-cover-table-cell-thumbnail a' ).not( ':has( .jb-cover-thumbnail )' ).append( '<div class="jb-cover-thumbnail jb-cover-thumbnail-no-image"><img src="./images/jb-blank-480x270.png" alt=""></div>' );
+    // Cover Slider Type 01
+      $( '.jb-cover-slider-type-01 .jb-slider a' ).each( function() {
+        var jbSliderCaption = $( '.jb-slider-caption', this ).text();
+        $( 'img', this ).attr( 'title', jbSliderCaption );
+      } );
+      $( '.jb-cover-slider-type-01 .jb-slider' ).nivoSlider( {
+        effect: 'fade', // Specify sets like: 'fold,fade,sliceDown'
+        slices: 15, // For slice animations
+        boxCols: 8, // For box animations
+        boxRows: 4, // For box animations
+        animSpeed: 500, // Slide transition speed
+        pauseTime: 4000, // How long each slide will show
+        startSlide: 0, // Set starting Slide (0 index)
+        directionNav: true, // Next & Prev navigation
+        controlNav: true, // 1,2,3... navigation
+        controlNavThumbs: false, // Use thumbnails for Control Nav
+        pauseOnHover: true, // Stop animation while hovering
+        manualAdvance: false, // Force manual transitions
+        prevText: 'Prev', // Prev directionNav text
+        nextText: 'Next', // Next directionNav text
+        randomStart: false, // Start on a random slide
+        beforeChange: function(){}, // Triggers before a slide transition
+        afterChange: function(){}, // Triggers after a slide transition
+        slideshowEnd: function(){}, // Triggers after all slides have been shown
+        lastSlide: function(){}, // Triggers when last slide is shown
+        afterLoad: function(){} // Triggers when slider has loaded
+      } );
+    // Cover Slider Type 02
+      $( '.jb-cover-slider-type-02 .jb-slider' ).nivoSlider( {
+        effect: 'fade', // Specify sets like: 'fold,fade,sliceDown'
+        slices: 15, // For slice animations
+        boxCols: 8, // For box animations
+        boxRows: 4, // For box animations
+        animSpeed: 500, // Slide transition speed
+        pauseTime: 4000, // How long each slide will show
+        startSlide: 0, // Set starting Slide (0 index)
+        directionNav: true, // Next & Prev navigation
+        controlNav: true, // 1,2,3... navigation
+        controlNavThumbs: false, // Use thumbnails for Control Nav
+        pauseOnHover: true, // Stop animation while hovering
+        manualAdvance: false, // Force manual transitions
+        prevText: 'Prev', // Prev directionNav text
+        nextText: 'Next', // Next directionNav text
+        randomStart: false, // Start on a random slide
+        beforeChange: function(){}, // Triggers before a slide transition
+        afterChange: function(){}, // Triggers after a slide transition
+        slideshowEnd: function(){}, // Triggers after all slides have been shown
+        lastSlide: function(){}, // Triggers when last slide is shown
+        afterLoad: function(){} // Triggers when slider has loaded
+      } );
+    // Sub Category
+      $( '.jb-category-name:contains("/")' ).each( function() {
+        $( this ).text( $( this ).text().replace( '/', ' / ' ) );
+      } );
+    // Responsive Image
+      $( '.jb-article p:has(span.imageblock)' ).wrap( '<div class="jb-image-p-wrap"></div>' );
+      $( '.jb-article table:has(span.imageblock)' ).each( function() {
+        if ( $( 'td', this ).length == 2 ) {
+          $( this ).addClass( 'jb-image-table jb-image-table-2' ).wrap( '<div class="jb-image-table-wrap"></div>' );
+        }
+        if ( $( 'td', this ).length == 3 ) {
+          $( this ).addClass( 'jb-image-table jb-image-table-3' ).wrap( '<div class="jb-image-table-wrap"></div>' );
+        }
+      } );
+    // Responsive YouTube Auto
+      <s_if_var_jb-responsive-youtube>
+        $( '.jb-article iframe[src^="https://www.youtube.com/"]' ).wrap( '<div class="jb-youtube-16x9"></div>' );
+        $( '.jb-article .jb-youtube-16x9:has( .jb-youtube-16x9 )' ).css( 'padding-bottom', '0px' );
+      </s_if_var_jb-responsive-youtube>
+    // Responsive Table
+      <s_if_var_jb-responsive-table>
+        $( '.jb-article table' ).wrap( '<div class="jb-responsive-table"></div>' );
+      </s_if_var_jb-responsive-table>
+    // Pagination
+      $( '.jb-pagination span[class="selected"]' ).parent( 'a' ).parent( 'li' ).addClass( 'jb-active' );
+    // Recent Posts
+      $( '.jb-cell-module-recent-posts .jb-module-list-table-cell-1' ).not( ':has( img )' ).append( '<img src="./images/jb-blank-150x150.png" alt="">' );
+      $( 'span.jb-recent-posts-reply-count > span' ).not( ':empty' ).each( function() {
+        $( this ).text( $( this ).text().replace( '(', '' ).replace( ')', '' ) ).prepend( '<i class="xi-message-o"></i>' );
+      } );
+    // Calendar
+      $( '.jb-module-content-calendar table td' ).has( 'a' ).addClass( 'jb-day-has-post' );
+    // AdSense - Content Middle
+      <s_if_var_jb-adsense-content-middle-show>
+        $( '.jb-adsense-cm' ).each( function() {
+          $( this ).text( '' ).append( jbAdSenseContentMiddle );
+        } );
+      </s_if_var_jb-adsense-content-middle-show>
+      <s_not_var_jb-adsense-content-middle-show>
+        $( '.jb-adsense-cm' ).each( function() {
+          $( this ).text( '' );
+        } );
+      </s_not_var_jb-adsense-content-middle-show>
+    // TOC
+      $( '#jb-toc' ).toc( {
+        content: ".jb-article",
+        headings: "h1,h2,h3"
+      } );
+      $( '#jb-toc a' ).smoothScroll( {
+        offset: -15
+      } );
+    // Category - Fold
+      $( '.jb-module-content-category-fold ul.category_list > li:has(ul) > a' ).addClass( 'jb-category-has-sub' ).removeAttr( 'href' );
+      $( 'a.jb-category-has-sub' ).click( function() {
+        $( this ).siblings().slideToggle();
+      } );
+    // Top Button
+      $( window ).scroll( function() {
+        if ( $( this ).scrollTop() > 200 ) {
+          $( '.jb-top' ).fadeIn();
+        } else {
+          $( '.jb-top' ).fadeOut();
+        }
+      } );
+      $( '.jb-top' ).click( function() { $( 'html, body' ).animate( { scrollTop : 0 }, 600 ); return false; } );
+    // Remove URL Category
+      <s_if_var_jb-remove-url-category>
+        $( '.jb-index-title a' ).each( function() {
+          this.href = this.href.replace( /\?category=([0-9]+)/ig, '' );
+        } )
+        $( '.jb-index-summary a' ).each( function() {
+          this.href = this.href.replace( /\?category=([0-9]+)/ig, '' );
+        } )
+        $( '.jb-related .jb-index-related-title a' ).each( function() {
+          this.href = this.href.replace( /\?category=([0-9]+)/ig, '' );
+        } )
+        $( '.another_category a' ).each( function() {
+          this.href = this.href.replace( /\?category=([0-9]+)/ig, '' );
+        } )
+        $( '.jb-index-table-cell-thumbnail a' ).each( function() {
+          this.href = this.href.replace( /\?category=([0-9]+)/ig, '' );
+        } )
+        $( '.jb-index-related-table-cell-thumbnail a' ).each( function() {
+          this.href = this.href.replace( /\?category=([0-9]+)/ig, '' );
+        } )
+      </s_if_var_jb-remove-url-category>
+    // Show
+      $( '.jb-background' ).css( { visibility: 'visible' } );
+  } );
+</script>
+
+  </s_t3></body>
+
+</html>

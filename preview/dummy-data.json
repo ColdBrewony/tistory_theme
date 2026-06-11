@@ -1,0 +1,51 @@
+{
+  "_comment": "티스토리 치환자 → 더미값 매핑. build-preview.mjs 가 사용. 레이아웃/스타일 검증용.",
+  "scalars": {
+    "page_title": "ColdBrewony Terminal — 미리보기",
+    "title": "devlog",
+    "blog_link": "#",
+    "rss_url": "#",
+    "body_id": "tt-body-index",
+    "list_conform": "전체 글",
+    "list_count": "42",
+    "list_style": "jb-index-type-02",
+    "search_name": "search",
+    "search_text": "",
+    "search_onclick_submit": "return false;",
+    "image": "https://picsum.photos/seed/info/600/300",
+    "var_jb-title-logo": "https://picsum.photos/seed/logo/200/80",
+    "var_jb-header-type-04-background": "https://picsum.photos/seed/hdr/1600/500",
+    "var_jb-header-type-11-background": "https://picsum.photos/seed/hdr11/1600/500"
+  },
+  "list_count_n": 6,
+  "cover_count_n": 3,
+  "list_item": {
+    "list_rep_link": "#",
+    "list_rep_title": "한글 제목이 keep-all 로 자연스럽게 줄바꿈되는지 확인하는 예시 글 제목입니다",
+    "list_rep_author": "관리자",
+    "list_rep_category": "카테고리",
+    "list_rep_category_link": "#",
+    "list_rep_regdate": "2026. 6. 11.",
+    "list_rep_summary": "본문 요약 텍스트입니다. 모던 리프레시 이후 폰트 크기 16/17px, 행간 1.7 이 적용되어 가독성이 어떻게 바뀌는지 확인합니다. word-break keep-all 로 단어가 중간에서 잘리지 않아야 합니다.",
+    "list_rep_thumbnail": "preview-thumb"
+  },
+  "cover_item": {
+    "cover_title": "추천 글",
+    "cover_url": "#",
+    "cover_item_url": "#",
+    "cover_item_title": "커버 블록 예시 제목",
+    "cover_item_category": "카테고리",
+    "cover_item_category_url": "#",
+    "cover_item_date": "2026. 6. 11.",
+    "cover_item_comment_count": "3",
+    "cover_item_summary": "커버 요약 텍스트 예시입니다.",
+    "cover_item_thumbnail": "preview-thumb"
+  },
+  "numeric_vars": {
+    "var_jb-layout-width-content": "720",
+    "var_jb-layout-width-sidebar": "300",
+    "var_jb-font-size-body": "16",
+    "var_jb-font-size-article": "17",
+    "var_jb-adsense-infeed-interval": "3"
+  }
+}
