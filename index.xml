@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <skin>
 	<information>
-		<name>ColdBrewony Terminal</name>
-		<version>3.3.3</version>
+		<name>ColdBrewony</name>
+		<version>4.0.0</version>
 		<description>
 			<![CDATA[
-				터미널/CMD 콘솔 컨셉 티스토리 반응형 스킨 — ColdBrewony
+				Brewed slowly, shipped daily. 백엔드 개발 기록을 위한 티스토리 반응형 스킨. 오트밀크 라이트 · 에스프레소 다크 테마, 목차, 읽는 시간, 진행 막대 지원 — ColdBrewony
 			]]>
 		</description>
 		<license>
@@ -18,853 +18,224 @@
 		<name>ColdBrewony</name>
 		<homepage>https://github.com/ColdBrewony</homepage>
 		<email></email>
-	</author> 
+	</author>
 	<default>
-		<entriesOnPage>12</entriesOnPage>
+		<entriesOnPage>10</entriesOnPage>
 		<entriesOnList>12</entriesOnList>
-		<recentEntries>10</recentEntries> 
-		<recentComments>10</recentComments>
+		<recentEntries>5</recentEntries>
+		<recentComments>5</recentComments>
 		<itemsOnGuestbook>10</itemsOnGuestbook>
-		<tagsInCloud>30</tagsInCloud>
-		<sortInCloud>3</sortInCloud> 
+		<tagsInCloud>24</tagsInCloud>
+		<sortInCloud>3</sortInCloud>
 		<expandComment>1</expandComment>
 		<lengthOfRecentNotice>40</lengthOfRecentNotice>
 		<lengthOfRecentEntry>40</lengthOfRecentEntry>
-		<lengthOfRecentComment>40</lengthOfRecentComment> 
+		<lengthOfRecentComment>40</lengthOfRecentComment>
 		<lengthOfLink>30</lengthOfLink>
 		<showListOnCategory>1</showListOnCategory>
-		<showListOnArchive>1</showListOnArchive> 
+		<showListOnArchive>1</showListOnArchive>
 		<commentMessage>
-			<none>0</none> 
+			<none>0</none>
 			<single>1</single>
 		</commentMessage>
-		<contentWidth>728</contentWidth>
+		<contentWidth>720</contentWidth>
 	</default>
 	<cover>
 		<item>
-			<name>jb-cover-type-01</name>
-			<label><![CDATA[COVER TYPE 01]]></label>
-			<description></description>
+			<name>cb-cover-featured</name>
+			<label><![CDATA[추천 카드 (큰 글 1 + 작은 글)]]></label>
+			<description><![CDATA[썸네일 카드 그리드. 첫 글이 크게 표시됩니다.]]></description>
 		</item>
 		<item>
-			<name>jb-cover-type-02</name>
-			<label><![CDATA[COVER TYPE 02]]></label>
-			<description></description>
-		</item>
-		<item>
-			<name>jb-cover-type-03</name>
-			<label><![CDATA[COVER TYPE 03]]></label>
-			<description></description>
-		</item>
-		<item>
-			<name>jb-cover-type-04</name>
-			<label><![CDATA[COVER TYPE 04]]></label>
-			<description></description>
-		</item>
-		<item>
-			<name>jb-cover-type-05</name>
-			<label><![CDATA[COVER TYPE 05]]></label>
-			<description></description>
-		</item>
-		<item>
-			<name>jb-cover-type-06</name>
-			<label><![CDATA[COVER TYPE 06]]></label>
-			<description></description>
-		</item>
-		<item>
-			<name>jb-cover-slider-type-01</name>
-			<label><![CDATA[COVER SLIDER TYPE 01]]></label>
-			<description></description>
-		</item>
-		<item>
-			<name>jb-cover-slider-type-02</name>
-			<label><![CDATA[COVER SLIDER TYPE 02]]></label>
-			<description></description>
+			<name>cb-cover-list</name>
+			<label><![CDATA[순위 목록]]></label>
+			<description><![CDATA[번호가 붙은 제목 목록.]]></description>
 		</item>
 	</cover>
 	<liststyle>
 		<item>
-			<label>TYPE 03</label>
-			<value>jb-index-type-03</value>
-		</item>
-		<item>
-			<label>TYPE 01</label>
-			<value>jb-index-type-01</value>
-		</item>
-		<item>
-			<label>TYPE 02</label>
-			<value>jb-index-type-02</value>
-		</item>
-		<item>
-			<label>TYPE 04</label>
-			<value>jb-index-type-04</value>
-		</item>
-		<item>
-			<label>TYPE 05</label>
-			<value>jb-index-type-05</value>
-		</item>
-		<item>
-			<label>TYPE 06</label>
-			<value>jb-index-type-06</value>
-		</item>
-		<item>
-			<label>TYPE 07</label>
-			<value>jb-index-type-07</value>
-		</item>
-		<item>
-			<label>TYPE 08</label>
-			<value>jb-index-type-08</value>
+			<label>기본 목록</label>
+			<value>cb-list-default</value>
 		</item>
 	</liststyle>
 	<variables>
-		<variablegroup name="레이아웃 / 글자 모양">
-			<variable><!-- jb-layout-width-content -->
-				<name>jb-layout-width-content</name>
-				<label>
-					<![CDATA[본문 가로 크기]]>
-				</label>
-				<description></description>
-				<type>STRING</type>
-				<option />
-				<default>720</default>
+		<variablegroup name="테마">
+			<variable>
+				<name>cb-default-theme</name>
+				<label><![CDATA[기본 테마]]></label>
+				<description><![CDATA[방문자가 직접 바꾸면 그 선택이 우선합니다.]]></description>
+				<type>SELECT</type>
+				<option>
+					<![CDATA[
+						[
+							{"name":"cb-theme-auto","label":"기기 설정 따르기","value":"cb-theme-auto"},
+							{"name":"cb-theme-light","label":"오트밀크 (밝게)","value":"cb-theme-light"},
+							{"name":"cb-theme-dark","label":"에스프레소 (어둡게)","value":"cb-theme-dark"}
+						]
+					]]>
+				</option>
+				<default>cb-theme-auto</default>
 			</variable>
-			<variable><!-- jb-layout-width-sidebar -->
-				<name>jb-layout-width-sidebar</name>
-				<label>
-					<![CDATA[사이드바 가로 크기]]>
-				</label>
-				<description></description>
-				<type>STRING</type>
-				<option />
-				<default>300</default>
-			</variable>
-			<variable><!-- jb-font-body-type -->
-				<name>jb-font-body-type</name>
-				<label><![CDATA[기본 글꼴]]></label>
+			<variable>
+				<name>cb-accent</name>
+				<label><![CDATA[강조 색]]></label>
 				<description></description>
 				<type>SELECT</type>
 				<option>
 					<![CDATA[
 						[
-							{ "name":"jb-font-body-type-01", "label":"시스템 글꼴", "value":"jb-font-body-type-01" },
-							{ "name":"jb-font-body-type-02", "label":"Noto Sans KR", "value":"jb-font-body-type-02" },
-							{ "name":"jb-font-body-type-03", "label":"LexiSaebomR", "value":"jb-font-body-type-03" },
-							{ "name":"jb-font-body-type-04", "label":"Nanum Gothic", "value":"jb-font-body-type-04" },
-							{ "name":"jb-font-body-type-05", "label":"Iropke Batang", "value":"jb-font-body-type-05" }
+							{"name":"cb-accent-copper","label":"캐러멜 (기본)","value":"cb-accent-copper"},
+							{"name":"cb-accent-ice","label":"아이스 블루","value":"cb-accent-ice"},
+							{"name":"cb-accent-matcha","label":"말차","value":"cb-accent-matcha"},
+							{"name":"cb-accent-cherry","label":"커피 체리","value":"cb-accent-cherry"}
 						]
 					]]>
 				</option>
-				<default>jb-font-body-type-02</default>
-			</variable>
-			<variable><!-- jb-font-heading-type -->
-				<name>jb-font-heading-type</name>
-				<label><![CDATA[제목 글꼴]]></label>
-				<description></description>
-				<type>SELECT</type>
-				<option>
-					<![CDATA[
-						[
-							{ "name":"jb-font-heading-type-01", "label":"시스템 글꼴", "value":"jb-font-heading-type-01" },
-							{ "name":"jb-font-heading-type-02", "label":"Noto Sans KR", "value":"jb-font-heading-type-02" },
-							{ "name":"jb-font-heading-type-03", "label":"LexiSaebomR", "value":"jb-font-heading-type-03" },
-							{ "name":"jb-font-heading-type-04", "label":"Nanum Gothic", "value":"jb-font-heading-type-04" },
-							{ "name":"jb-font-heading-type-05", "label":"Iropke Batang", "value":"jb-font-heading-type-05" }
-						]
-					]]>
-				</option>
-				<default>jb-font-heading-type-02</default>
-			</variable>
-			<variable><!-- jb-font-size-body -->
-				<name>jb-font-size-body</name>
-				<label><![CDATA[기본 글자 크기]]></label>
-				<description></description>
-				<type>STRING</type>
-				<option />
-				<default>16</default>
-			</variable>
-			<variable><!-- jb-font-size-article -->
-				<name>jb-font-size-article</name>
-				<label><![CDATA[본문 글자 크기]]></label>
-				<description></description>
-				<type>STRING</type>
-				<option />
-				<default>17</default>
+				<default>cb-accent-copper</default>
 			</variable>
 		</variablegroup>
-		<variablegroup name="상단">
-			<variable><!-- jb-header-type -->
-				<name>jb-header-type</name>
-				<label><![CDATA[헤더 스타일]]></label>
-				<description></description>
-				<type>SELECT</type>
-				<option>
-					<![CDATA[
-						[
-							{"name":"jb-header-type-01","label":"TYPE 01","value":"jb-header-type-01"},
-							{"name":"jb-header-type-02","label":"TYPE 02","value":"jb-header-type-02"},
-							{"name":"jb-header-type-03","label":"TYPE 03","value":"jb-header-type-03"},
-							{"name":"jb-header-type-04","label":"TYPE 04","value":"jb-header-type-04"},
-							{"name":"jb-header-type-11","label":"TYPE 11","value":"jb-header-type-11"},
-							{"name":"jb-header-type-12","label":"TYPE 12","value":"jb-header-type-12"},
-							{"name":"jb-header-type-13","label":"TYPE 13","value":"jb-header-type-13"}
-						]
-					]]>
-				</option>
-				<default>jb-header-type-01</default>
-			</variable>
-			<variable><!-- jb-header-type-04-background -->
-				<name>jb-header-type-04-background</name>
-				<label><![CDATA[헤더 TYPE 04 배경]]></label>
-				<description></description>
-				<type>IMAGE</type>
-				<option />
-				<default>https://k.kakaocdn.net/dn/bxPeeI/btqC6kUKonq/kbHRQ23zmKuufCkkIoWWhK/img.jpg</default>
-			</variable>
-			<variable><!-- jb-header-type-11-background -->
-				<name>jb-header-type-11-background</name>
-				<label><![CDATA[헤더 TYPE 11 배경]]></label>
-				<description></description>
-				<type>IMAGE</type>
-				<option />
-				<default>https://k.kakaocdn.net/dn/P3zN1/btqDbFjKaaS/dpPEVH8KOg9eURffOxtUVk/img.jpg</default>
-			</variable>
-			<variable><!-- jb-navigation-type -->
-				<name>jb-navigation-type</name>
-				<label><![CDATA[메뉴 스타일]]></label>
-				<description></description>
-				<type>SELECT</type>
-				<option>
-					<![CDATA[
-						[
-							{"name":"jb-navigation-type-01","label":"TYPE 01","value":"jb-navigation-type-01"},
-							{"name":"jb-navigation-type-02","label":"TYPE 02","value":"jb-navigation-type-02"},
-							{"name":"jb-navigation-type-03","label":"TYPE 03","value":"jb-navigation-type-03"},
-							{"name":"jb-navigation-type-11","label":"TYPE 11","value":"jb-navigation-type-11"},
-							{"name":"jb-navigation-type-12","label":"TYPE 12","value":"jb-navigation-type-12"}
-						]
-					]]>
-				</option>
-				<default>jb-navigation-type-01</default>
-			</variable>
-			<variable><!-- jb-title-logo-use -->
-				<name>jb-title-logo-use</name>
-				<label>
-					<![CDATA[블로그 제목 로고 사용]]>
-				</label>
+		<variablegroup name="상단 · 홈">
+			<variable>
+				<name>cb-logo-use</name>
+				<label><![CDATA[블로그 제목 대신 로고 이미지 사용]]></label>
 				<description></description>
 				<type>BOOL</type>
 				<option />
 				<default>false</default>
 			</variable>
-			<variable><!-- jb-title-logo -->
-				<name>jb-title-logo</name>
-				<label><![CDATA[로고]]></label>
-				<description></description>
+			<variable>
+				<name>cb-logo</name>
+				<label><![CDATA[로고 이미지]]></label>
+				<description><![CDATA[높이 34px 로 표시됩니다.]]></description>
 				<type>IMAGE</type>
 				<option />
-				<default>https://k.kakaocdn.net/dn/oafKx/btqC6QeNINz/1Zd1Eiq2cPsWqkeNtRtkMK/img.png</default>
+				<default></default>
 			</variable>
-		</variablegroup>
-		<variablegroup name="사이드바">
-			<variable><!-- jb-sidebar-right-show -->
-				<name>jb-sidebar-right-show</name>
-				<label>
-					<![CDATA[사이드바 오른쪽 표시]]>
-				</label>
+			<variable>
+				<name>cb-hero-show</name>
+				<label><![CDATA[홈 첫 화면에 블로그 소개 표시]]></label>
 				<description></description>
 				<type>BOOL</type>
 				<option />
 				<default>true</default>
 			</variable>
-			<variable><!-- jb-sidebar-right-type -->
-				<name>jb-sidebar-right-type</name>
-				<label><![CDATA[사이드바 오른쪽 스타일]]></label>
+			<variable>
+				<name>cb-hero-eyebrow</name>
+				<label><![CDATA[소개 위 작은 문구]]></label>
 				<description></description>
-				<type>SELECT</type>
-				<option>
-					<![CDATA[
-						[
-							{"name":"jb-sidebar-right-type-01","label":"TYPE 01","value":"jb-sidebar-right-type-01"},
-							{"name":"jb-sidebar-right-type-02","label":"TYPE 02","value":"jb-sidebar-right-type-02"},
-							{"name":"jb-sidebar-right-type-03","label":"TYPE 03","value":"jb-sidebar-right-type-03"},
-							{"name":"jb-sidebar-right-type-04","label":"TYPE 04","value":"jb-sidebar-right-type-04"},
-							{"name":"jb-sidebar-right-type-05","label":"TYPE 05","value":"jb-sidebar-right-type-05"}
-						]
-					]]>
-				</option>
-				<default>jb-sidebar-right-type-01</default>
-			</variable>
-			<variable><!-- jb-sidebar-right-to-left -->
-				<name>jb-sidebar-right-to-left</name>
-				<label>
-					<![CDATA[사이드바 오른쪽 왼쪽으로]]>
-				</label>
-				<description></description>
-				<type>BOOL</type>
+				<type>STRING</type>
 				<option />
-				<default>false</default>
-			</variable>
-			<variable><!-- jb-sidebar-bottom-show -->
-				<name>jb-sidebar-bottom-show</name>
-				<label>
-					<![CDATA[사이드바 아래쪽 표시]]>
-				</label>
-				<description></description>
-				<type>BOOL</type>
-				<option />
-				<default>true</default>
-			</variable>
-			<variable><!-- jb-sidebar-bottom-type -->
-				<name>jb-sidebar-bottom-type</name>
-				<label><![CDATA[사이드바 아래쪽 스타일]]></label>
-				<description></description>
-				<type>SELECT</type>
-				<option>
-					<![CDATA[
-						[
-							{"name":"jb-sidebar-bottom-type-01","label":"TYPE 01","value":"jb-sidebar-bottom-type-01"},
-							{"name":"jb-sidebar-bottom-type-02","label":"TYPE 02","value":"jb-sidebar-bottom-type-02"},
-							{"name":"jb-sidebar-bottom-type-03","label":"TYPE 03","value":"jb-sidebar-bottom-type-03"},
-							{"name":"jb-sidebar-bottom-type-04","label":"TYPE 04","value":"jb-sidebar-bottom-type-04"},
-							{"name":"jb-sidebar-bottom-type-05","label":"TYPE 05","value":"jb-sidebar-bottom-type-05"}
-						]
-					]]>
-				</option>
-				<default>jb-sidebar-bottom-type-01</default>
-			</variable>
-			<variable><!-- jb-sidebar-bottom-full-width -->
-				<name>jb-sidebar-bottom-full-width</name>
-				<label>
-					<![CDATA[사이드바 아래쪽 전체폭]]>
-				</label>
-				<description></description>
-				<type>BOOL</type>
-				<option />
-				<default>false</default>
-			</variable>
-			<variable><!-- jb-sidebar-bottom-dark -->
-				<name>jb-sidebar-bottom-dark</name>
-				<label>
-					<![CDATA[사이드바 아래쪽 검정]]>
-				</label>
-				<description></description>
-				<type>BOOL</type>
-				<option />
-				<default>false</default>
-			</variable>
-			<variable><!-- jb-recent-posts-thumbnail-show -->
-				<name>jb-recent-posts-thumbnail-show</name>
-				<label>
-					<![CDATA[최근 글 썸네일 표시]]>
-				</label>
-				<description></description>
-				<type>BOOL</type>
-				<option />
-				<default>true</default>
+				<default>Backend Developer · Brewed slowly, shipped daily.</default>
 			</variable>
 		</variablegroup>
-		<variablegroup name="글 목록">
-			<variable><!-- jb-cover-title-type -->
-				<name>jb-cover-title-type</name>
-				<label><![CDATA[커버 제목 스타일]]></label>
-				<description></description>
-				<type>SELECT</type>
-				<option>
-					<![CDATA[
-						[
-							{ "name":"jb-cover-title-type-01", "label":"TYPE 01", "value":"jb-cover-title-type-01" },
-							{ "name":"jb-cover-title-type-02", "label":"TYPE 02", "value":"jb-cover-title-type-02" }
-						]
-					]]>
-				</option>
-				<default>jb-cover-title-type-01</default>
-			</variable>
-			<variable><!-- jb-index-notice-type -->
-				<name>jb-index-notice-type</name>
-				<label><![CDATA[공지사항 글 목록 스타일]]></label>
-				<description></description>
-				<type>SELECT</type>
-				<option>
-					<![CDATA[
-						[
-							{ "name":"jb-index-notice-type-01", "label":"TYPE 01", "value":"jb-index-notice-type-01" },
-							{ "name":"jb-index-notice-type-02", "label":"TYPE 02", "value":"jb-index-notice-type-02" }
-						]
-					]]>
-				</option>
-				<default>jb-index-notice-type-01</default>
-			</variable>
-			<variable><!-- jb-index-show-author -->
-				<name>jb-index-show-author</name>
-				<label>
-					<![CDATA[작성자 표시]]>
-				</label>
-				<description></description>
+		<variablegroup name="레이아웃">
+			<variable>
+				<name>cb-sidebar-show</name>
+				<label><![CDATA[사이드바 표시]]></label>
+				<description><![CDATA[끄면 한 칼럼으로 가운데 정렬됩니다.]]></description>
 				<type>BOOL</type>
 				<option />
 				<default>true</default>
 			</variable>
 		</variablegroup>
 		<variablegroup name="글">
-			<variable><!-- jb-post-show-simple-date -->
-				<name>jb-post-show-simple-date</name>
-				<label>
-					<![CDATA[짧은 날짜 표시]]>
-				</label>
+			<variable>
+				<name>cb-show-author</name>
+				<label><![CDATA[작성자 표시]]></label>
+				<description></description>
+				<type>BOOL</type>
+				<option />
+				<default>false</default>
+			</variable>
+			<variable>
+				<name>cb-toc</name>
+				<label><![CDATA[목차 자동 생성 (소제목 3개 이상)]]></label>
 				<description></description>
 				<type>BOOL</type>
 				<option />
 				<default>true</default>
 			</variable>
-			<variable><!-- jb-post-show-author -->
-				<name>jb-post-show-author</name>
-				<label>
-					<![CDATA[작성자 표시]]>
-				</label>
+			<variable>
+				<name>cb-reading-time</name>
+				<label><![CDATA[읽는 시간 표시]]></label>
 				<description></description>
 				<type>BOOL</type>
 				<option />
 				<default>true</default>
 			</variable>
-			<variable><!-- jb-toc-show-auto -->
-				<name>jb-toc-show-auto</name>
-				<label>
-					<![CDATA[차례 자동 표시]]>
-				</label>
-				<description></description>
-				<type>BOOL</type>
-				<option />
-				<default>false</default>
-			</variable>
-			<variable><!-- jb-post-show-related -->
-				<name>jb-post-show-related</name>
-				<label>
-					<![CDATA[관련 글 표시]]>
-				</label>
+			<variable>
+				<name>cb-show-related</name>
+				<label><![CDATA[같은 카테고리의 다른 글 표시]]></label>
 				<description></description>
 				<type>BOOL</type>
 				<option />
 				<default>true</default>
 			</variable>
-			<variable><!-- jb-index-related-type -->
-				<name>jb-index-related-type</name>
-				<label><![CDATA[관련 글 목록 스타일]]></label>
-				<description></description>
-				<type>SELECT</type>
-				<option>
-					<![CDATA[
-						[
-							{"name":"jb-index-related-type-01","label":"TYPE 01","value":"jb-index-related-type-01"},
-							{"name":"jb-index-related-type-02","label":"TYPE 02","value":"jb-index-related-type-02"}
-						]
-					]]>
-				</option>
-				<default>jb-index-related-type-01</default>
-			</variable>
-			<variable><!-- jb-another-category-type -->
-				<name>jb-another-category-type</name>
-				<label><![CDATA[카테고리 글 더 보기 스타일]]></label>
-				<description></description>
-				<type>SELECT</type>
-				<option>
-					<![CDATA[
-						[
-							{"name":"jb-another-category-type-01","label":"TYPE 01","value":"jb-another-category-type-01"},
-							{"name":"jb-another-category-type-02","label":"TYPE 02","value":"jb-another-category-type-02"}
-						]
-					]]>
-				</option>
-				<default>jb-another-category-type-01</default>
-			</variable>
-			<variable><!-- jb-comment-type -->
-				<name>jb-comment-type</name>
-				<label><![CDATA[댓글 스타일]]></label>
-				<description></description>
-				<type>SELECT</type>
-				<option>
-					<![CDATA[
-						[
-							{"name":"jb-comment-type-01","label":"TYPE 01","value":"jb-comment-type-01"},
-							{"name":"jb-comment-type-02","label":"TYPE 02","value":"jb-comment-type-02"}
-						]
-					]]>
-				</option>
-				<default>jb-comment-type-01</default>
-			</variable>
-		</variablegroup>
-		<variablegroup name="새로운 댓글과 방명록">
-			<variable><!-- jb-new-comment -->
-				<name>jb-new-comment</name>
-				<label>
-					<![CDATA[새로운 댓글 사용]]>
-				</label>
-				<description></description>
+			<variable>
+				<name>cb-new-comment</name>
+				<label><![CDATA[티스토리 새 댓글 시스템 사용]]></label>
+				<description><![CDATA[끄면 스킨 자체 댓글 디자인을 씁니다.]]></description>
 				<type>BOOL</type>
 				<option />
-				<default>false</default>
+				<default>true</default>
 			</variable>
-			<variable><!-- jb-new-guestbook -->
-				<name>jb-new-guestbook</name>
-				<label>
-					<![CDATA[새로운 방명록 사용]]>
-				</label>
-				<description></description>
-				<type>BOOL</type>
-				<option />
-				<default>false</default>
-			</variable>
-		</variablegroup>
-		<variablegroup name="글 꾸미기 - 신 에디터">
-			<variable><!-- jb-typography-heading-type -->
-				<name>jb-typography-heading-type</name>
-				<label><![CDATA[본문 내 제목 스타일]]></label>
-				<description></description>
-				<type>SELECT</type>
-				<option>
-					<![CDATA[
-						[
-							{"name":"jb-typography-heading-type-01","label":"TYPE 01","value":"jb-typography-heading-type-01"},
-							{"name":"jb-typography-heading-type-02","label":"TYPE 02","value":"jb-typography-heading-type-02"},
-							{"name":"jb-typography-heading-type-03","label":"TYPE 03","value":"jb-typography-heading-type-03"},
-							{"name":"jb-typography-heading-type-04","label":"TYPE 04","value":"jb-typography-heading-type-04"}
-						]
-					]]>
-				</option>
-				<default>jb-typography-heading-type-01</default>
-			</variable>
-			<variable><!-- jb-typography-blockquote-1-type -->
-				<name>jb-typography-blockquote-1-type</name>
-				<label><![CDATA[인용 1 스타일]]></label>
-				<description></description>
-				<type>SELECT</type>
-				<option>
-					<![CDATA[
-						[
-							{"name":"jb-typography-blockquote-1-type-01","label":"TYPE 01","value":"jb-typography-blockquote-1-type-01"},
-							{"name":"jb-typography-blockquote-1-type-02","label":"TYPE 02","value":"jb-typography-blockquote-1-type-02"}
-						]
-					]]>
-				</option>
-				<default>jb-typography-blockquote-1-type-01</default>
-			</variable>
-			<variable><!-- jb-typography-blockquote-2-type -->
-				<name>jb-typography-blockquote-2-type</name>
-				<label><![CDATA[인용 2 스타일]]></label>
-				<description></description>
-				<type>SELECT</type>
-				<option>
-					<![CDATA[
-						[
-							{"name":"jb-typography-blockquote-2-type-01","label":"TYPE 01","value":"jb-typography-blockquote-2-type-01"},
-							{"name":"jb-typography-blockquote-2-type-02","label":"TYPE 02","value":"jb-typography-blockquote-2-type-02"}
-						]
-					]]>
-				</option>
-				<default>jb-typography-blockquote-2-type-01</default>
-			</variable>
-		</variablegroup>
-		<variablegroup name="글 꾸미기 - 구 에디터">
-			<variable><!-- jb-typography-ce-heading-type -->
-				<name>jb-typography-ce-heading-type</name>
-				<label><![CDATA[본문 내 제목 스타일]]></label>
-				<description></description>
-				<type>SELECT</type>
-				<option>
-					<![CDATA[
-						[
-							{"name":"jb-typography-ce-heading-type-01","label":"TYPE 01","value":"jb-typography-ce-heading-type-01"},
-							{"name":"jb-typography-ce-heading-type-02","label":"TYPE 02","value":"jb-typography-ce-heading-type-02"},
-							{"name":"jb-typography-ce-heading-type-03","label":"TYPE 03","value":"jb-typography-ce-heading-type-03"},
-							{"name":"jb-typography-ce-heading-type-04","label":"TYPE 04","value":"jb-typography-ce-heading-type-04"}
-						]
-					]]>
-				</option>
-				<default>jb-typography-ce-heading-type-01</default>
-			</variable>
-			<variable><!-- jb-typography-ce-blockquote-type -->
-				<name>jb-typography-ce-blockquote-type</name>
-				<label><![CDATA[인용 스타일]]></label>
-				<description></description>
-				<type>SELECT</type>
-				<option>
-					<![CDATA[
-						[
-							{"name":"jb-typography-ce-blockquote-type-01","label":"TYPE 01","value":"jb-typography-ce-blockquote-type-01"},
-							{"name":"jb-typography-ce-blockquote-type-02","label":"TYPE 02","value":"jb-typography-ce-blockquote-type-02"}
-						]
-					]]>
-				</option>
-				<default>jb-typography-ce-blockquote-type-01</default>
-			</variable>
-		</variablegroup>
-		<variablegroup name="SNS">
-			<variable><!-- jb-sns-show -->
-				<name>jb-sns-show</name>
-				<label><![CDATA[SNS 표시]]></label>
-				<description></description>
-				<type>BOOL</type>
-				<option />
-				<default>false</default>
-			</variable>
-			<variable><!-- jb-sns-facebook-url -->
-				<name>jb-sns-facebook-url</name>
-				<label><![CDATA[Facebook URL]]></label>
-				<description></description>
-				<type>STRING</type>
-				<option />
-				<default></default>
-			</variable>
-			<variable><!-- jb-sns-instagram-url -->
-				<name>jb-sns-instagram-url</name>
-				<label><![CDATA[Instagram URL]]></label>
-				<description></description>
-				<type>STRING</type>
-				<option />
-				<default></default>
-			</variable>
-			<variable><!-- jb-sns-twitter-url -->
-				<name>jb-sns-twitter-url</name>
-				<label><![CDATA[Twitter URL]]></label>
-				<description></description>
-				<type>STRING</type>
-				<option />
-				<default></default>
-			</variable>
-			<variable><!-- jb-sns-kakaostory-url -->
-				<name>jb-sns-kakaostory-url</name>
-				<label><![CDATA[Kakaostory URL]]></label>
-				<description></description>
-				<type>STRING</type>
-				<option />
-				<default></default>
-			</variable>
-			<variable><!-- jb-sns-pinterest-url -->
-				<name>jb-sns-pinterest-url</name>
-				<label><![CDATA[Pinterest URL]]></label>
-				<description></description>
-				<type>STRING</type>
-				<option />
-				<default></default>
-			</variable>
-			<variable><!-- jb-sns-linkedin-url -->
-				<name>jb-sns-linkedin-url</name>
-				<label><![CDATA[Linkedin URL]]></label>
-				<description></description>
-				<type>STRING</type>
-				<option />
-				<default></default>
-			</variable>
-			<variable><!-- jb-sns-youtube-url -->
-				<name>jb-sns-youtube-url</name>
-				<label><![CDATA[YouTube URL]]></label>
-				<description></description>
-				<type>STRING</type>
-				<option />
-				<default></default>
-			</variable>
-			<variable><!-- jb-sns-kakaotalk-url -->
-				<name>jb-sns-kakaotalk-url</name>
-				<label><![CDATA[Kakaotalk URL]]></label>
-				<description></description>
-				<type>STRING</type>
-				<option />
-				<default></default>
-			</variable>
-			<variable><!-- jb-sns-twich-url -->
-				<name>jb-sns-twich-url</name>
-				<label><![CDATA[Twich URL]]></label>
-				<description></description>
-				<type>STRING</type>
-				<option />
-				<default></default>
-			</variable>
-		</variablegroup>
-		<variablegroup name="AdSense">
-			<variable><!-- jb-adsense-client-id -->
-				<name>jb-adsense-client-id</name>
-				<label><![CDATA[AdSense Client ID]]></label>
-				<description></description>
-				<type>STRING</type>
-				<option />
-				<default></default>
-			</variable>
-			<variable><!-- jb-adsense-main-top-slot -->
-				<name>jb-adsense-main-top-slot</name>
-				<label><![CDATA[메인 상단 SLOT]]></label>
-				<description></description>
-				<type>STRING</type>
-				<option />
-				<default></default>
-			</variable>
-			<variable><!-- jb-adsense-main-bottom-slot -->
-				<name>jb-adsense-main-bottom-slot</name>
-				<label><![CDATA[메인 하단 SLOT]]></label>
-				<description></description>
-				<type>STRING</type>
-				<option />
-				<default></default>
-			</variable>
-			<variable><!-- jb-adsense-content-top-slot -->
-				<name>jb-adsense-content-top-slot</name>
-				<label><![CDATA[본문 상단 SLOT]]></label>
-				<description></description>
-				<type>STRING</type>
-				<option />
-				<default></default>
-			</variable>
-			<variable><!-- jb-adsense-content-top-left-slot -->
-				<name>jb-adsense-content-top-left-slot</name>
-				<label><![CDATA[본문 상단 왼쪽 SLOT]]></label>
-				<description></description>
-				<type>STRING</type>
-				<option />
-				<default></default>
-			</variable>
-			<variable><!-- jb-adsense-content-top-right-slot -->
-				<name>jb-adsense-content-top-right-slot</name>
-				<label><![CDATA[본문 상단 오른쪽 SLOT]]></label>
-				<description></description>
-				<type>STRING</type>
-				<option />
-				<default></default>
-			</variable>
-			<variable><!-- jb-adsense-content-bottom-slot -->
-				<name>jb-adsense-content-bottom-slot</name>
-				<label><![CDATA[본문 하단 SLOT]]></label>
-				<description></description>
-				<type>STRING</type>
-				<option />
-				<default></default>
-			</variable>
-			<variable><!-- jb-adsense-content-middle-slot -->
-				<name>jb-adsense-content-middle-slot</name>
-				<label><![CDATA[본문 중간 SLOT]]></label>
-				<description></description>
-				<type>STRING</type>
-				<option />
-				<default></default>
-			</variable>
-			<variable><!-- jb-adsense-infeed-layout-key -->
-				<name>jb-adsense-infeed-layout-key</name>
-				<label><![CDATA[인피드 LAYOUT KEY]]></label>
-				<description></description>
-				<type>STRING</type>
-				<option />
-				<default></default>
-			</variable>
-			<variable><!-- jb-adsense-infeed-slot -->
-				<name>jb-adsense-infeed-slot</name>
-				<label><![CDATA[인피드 SLOT]]></label>
-				<description></description>
-				<type>STRING</type>
-				<option />
-				<default></default>
-			</variable>
-			<variable><!-- jb-adsense-infeed-interval -->
-				<name>jb-adsense-infeed-interval</name>
-				<label><![CDATA[인피드 광고 간격]]></label>
-				<description></description>
-				<type>STRING</type>
-				<option />
-				<default>3</default>
-			</variable>
-			<variable><!-- jb-adsense-data-full-width-responsive -->
-				<name>jb-adsense-data-full-width-responsive</name>
-				<label><![CDATA[모바일 전체폭 광고 사용]]></label>
+			<variable>
+				<name>cb-new-guestbook</name>
+				<label><![CDATA[티스토리 새 방명록 시스템 사용]]></label>
 				<description></description>
 				<type>BOOL</type>
 				<option />
 				<default>true</default>
 			</variable>
-			<variable><!-- jb-adsense-main-top-show -->
-				<name>jb-adsense-main-top-show</name>
-				<label><![CDATA[메인 상단]]></label>
-				<description></description>
-				<type>BOOL</type>
-				<option />
-				<default>false</default>
-			</variable>
-			<variable><!-- jb-adsense-main-bottom-show -->
-				<name>jb-adsense-main-bottom-show</name>
-				<label><![CDATA[메인 하단]]></label>
-				<description></description>
-				<type>BOOL</type>
-				<option />
-				<default>false</default>
-			</variable>
-			<variable><!-- jb-adsense-content-top-show -->
-				<name>jb-adsense-content-top-show</name>
-				<label><![CDATA[본문 상단]]></label>
-				<description></description>
-				<type>BOOL</type>
-				<option />
-				<default>false</default>
-			</variable>
-			<variable><!-- jb-adsense-content-top-left-right-show -->
-				<name>jb-adsense-content-top-left-right-show</name>
-				<label><![CDATA[본문 상단 두 개]]></label>
-				<description></description>
-				<type>BOOL</type>
-				<option />
-				<default>false</default>
-			</variable>
-			<variable><!-- jb-adsense-content-top-right-show -->
-				<name>jb-adsense-content-top-right-show</name>
-				<label><![CDATA[본문 상단 오른쪽]]></label>
-				<description></description>
-				<type>BOOL</type>
-				<option />
-				<default>false</default>
-			</variable>
-			<variable><!-- jb-adsense-content-bottom-show -->
-				<name>jb-adsense-content-bottom-show</name>
-				<label><![CDATA[본문 하단]]></label>
-				<description></description>
-				<type>BOOL</type>
-				<option />
-				<default>false</default>
-			</variable>
-			<variable><!-- jb-adsense-content-middle-show -->
-				<name>jb-adsense-content-middle-show</name>
-				<label><![CDATA[본문 중간]]></label>
-				<description></description>
-				<type>BOOL</type>
-				<option />
-				<default>false</default>
-			</variable>
-			<variable><!-- jb-adsense-infeed-show -->
-				<name>jb-adsense-infeed-show</name>
-				<label><![CDATA[인피드 광고]]></label>
-				<description></description>
-				<type>BOOL</type>
-				<option />
-				<default>false</default>
-			</variable>
 		</variablegroup>
-		<variablegroup name="기타">
-			<variable><!-- jb-responsive-youtube -->
-				<name>jb-responsive-youtube</name>
-				<label><![CDATA[자동 반응형 유튜브]]></label>
+		<variablegroup name="소셜 · 푸터">
+			<variable>
+				<name>cb-github-url</name>
+				<label><![CDATA[GitHub 주소]]></label>
 				<description></description>
-				<type>BOOL</type>
+				<type>STRING</type>
 				<option />
-				<default>false</default>
+				<default>https://github.com/ColdBrewony</default>
 			</variable>
-			<variable><!-- jb-responsive-table -->
-				<name>jb-responsive-table</name>
-				<label><![CDATA[자동 반응형 표]]></label>
+			<variable>
+				<name>cb-portfolio-url</name>
+				<label><![CDATA[포트폴리오 주소]]></label>
 				<description></description>
-				<type>BOOL</type>
+				<type>STRING</type>
 				<option />
-				<default>false</default>
+				<default>https://portfolio-woonny-s-projects.vercel.app/</default>
 			</variable>
-			<variable><!-- jb-remove-url-category -->
-				<name>jb-remove-url-category</name>
-				<label><![CDATA[URL에서 ?category 제거]]></label>
+			<variable>
+				<name>cb-instagram-url</name>
+				<label><![CDATA[Instagram 주소]]></label>
 				<description></description>
-				<type>BOOL</type>
+				<type>STRING</type>
 				<option />
-				<default>false</default>
+				<default></default>
+			</variable>
+			<variable>
+				<name>cb-x-url</name>
+				<label><![CDATA[X 주소]]></label>
+				<description></description>
+				<type>STRING</type>
+				<option />
+				<default></default>
+			</variable>
+			<variable>
+				<name>cb-youtube-url</name>
+				<label><![CDATA[YouTube 주소]]></label>
+				<description></description>
+				<type>STRING</type>
+				<option />
+				<default></default>
+			</variable>
+			<variable>
+				<name>cb-footer-text</name>
+				<label><![CDATA[푸터 한 줄 소개]]></label>
+				<description></description>
+				<type>STRING</type>
+				<option />
+				<default>천천히, 그러나 꾸준히 커밋합니다.</default>
 			</variable>
 		</variablegroup>
 	</variables>
